@@ -6,16 +6,24 @@
 body {
   height: 100vh;
   box-sizing: border-box;
-  background-color: #13293d;
+  background-color: black;
   color: #e8f1f2;
   font-family: "Courier", Courier, monospace;
 }
 
 header {
+  display: flex;
   padding: 30px;
   font-size: 50px;
   align-items: center;
   text-align: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  width: 150px;
+  height: auto;
+  font-size: 10px;
 }
 
 .conteudos {
@@ -31,7 +39,7 @@ header {
   background: #006494;
   border-radius: 30px;
   width: 60vw;
-  height: 200px;
+  max-height: 400px;
   padding: 10px;
 }
 
@@ -44,11 +52,38 @@ header {
 }
 .conteudos__grid-links {
   text-decoration: none;
+  place-content: center;
   font-size: 30px;
-  background: #247ba0;
+  background: #13293d;
   color: #e8f1f2;
   border-radius: 30px;
   width: 28vw;
   height: 200px;
   padding: 10px;
+}
+
+.linha-divisoria {
+  margin: 30px 10px;
+}
+
+footer {
+  padding-inline: 10vw;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 35vw 35vw;
+  justify-content: space-between;
+  text-align: center;
+  place-items: center;
+}
+
+.footer-sobre {
+  font-weight: bold;
+  width: 35vw;
+}
+
+.footer-sobre-conteudo {
+  line-height: 1.5;
+  background: #006494;
+  border-radius: 30px;
+  padding: 20px;
 }
