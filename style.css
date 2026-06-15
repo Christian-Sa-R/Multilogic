@@ -6,61 +6,89 @@
 body {
   height: 100vh;
   box-sizing: border-box;
-  background-color: black;
-  color: #e8f1f2;
+  background-color: #000000;
+  color: #efedfc;
   font-family: "Courier", Courier, monospace;
 }
 
 header {
   display: flex;
   padding: 30px;
-  font-size: 50px;
+  padding-bottom: 0;
+  margin-bottom: 30px;
   align-items: center;
   text-align: center;
   justify-content: space-between;
+  background-color: #161426;
+  font-weight: bold;
 }
 
-.header-logo {
-  width: 150px;
-  height: auto;
+.header-info {
+  width: auto;
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+  justify-content: space-between;
+}
+
+.header-info-logo {
+  width: auto;
+  height: 100px;
   font-size: 10px;
+  margin-right: 20px;
+  border-radius: 20px;
 }
 
-.conteudos {
+.header-botoes {
+  display: flex;
+  align-items: center;
+}
+
+.header-botoes-gerais {
+  text-decoration: none;
+  color: #efedfc;
+  font-size: 30px;
+  padding: 15px;
+  margin: 0 10px;
+}
+
+.header-botoes-gerais-atual {
+  border-radius: 50px;
+  background-color: #c2a9fa;
+}
+
+.header-botoes-tema {
+  font-size: 30px;
+  border-radius: 100%;
+  width: 5vw;
+  height: 5vw;
+  background-color: #f6d776;
+}
+
+/*
+Parte do main
+*/
+
+.main-home {
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 30px;
 }
 
-.conteudos__apresentacao {
+.main-home__apresentacao {
   font-size: 30px;
   text-align: center;
-  background: #006494;
+  background: #986bfa;
   border-radius: 30px;
   width: 60vw;
   max-height: 400px;
   padding: 10px;
 }
 
-.conteudos__grid {
-  display: grid;
-  text-align: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: repeat(auto-fill);
-  gap: 30px 2vw;
-}
-.conteudos__grid-links {
-  text-decoration: none;
-  place-content: center;
-  font-size: 30px;
-  background: #13293d;
-  color: #e8f1f2;
-  border-radius: 30px;
-  width: 28vw;
-  height: 200px;
-  padding: 10px;
-}
+/*
+Parte do footer
+*/
 
 .linha-divisoria {
   margin: 30px 10px;
@@ -83,7 +111,7 @@ footer {
 
 .footer-sobre-conteudo {
   line-height: 1.5;
-  background: #006494;
+  background: #161426;
   border-radius: 30px;
   padding: 20px;
 }
