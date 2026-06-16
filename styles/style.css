@@ -1,3 +1,23 @@
+:root {
+  --cor-fundo: #000000;
+  --cor-texto: #efedfc;
+  --cor-fundo--alternativo: #161426;
+  --cor-botoes: #c2a9fa;
+  --cor-elementos: #986bfa;
+  --cor-botao--tema: #f6d776;
+  --cor-extra: #a1a2a9;
+}
+
+body.dark {
+  --cor-fundo: #000000;
+  --cor-texto: #efedfc;
+  --cor-fundo--alternativo: #161426;
+  --cor-botoes: #c2a9fa;
+  --cor-elementos: #986bfa;
+  --cor-botao--tema: #f6d776;
+  --cor-extra: #a1a2a9;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +26,8 @@
 body {
   height: 100vh;
   box-sizing: border-box;
-  background-color: #000000;
-  color: #efedfc;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
   font-family: "Courier", Courier, monospace;
 }
 
@@ -19,7 +39,7 @@ header {
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  background-color: #161426;
+  background-color: var(--cor-fundo--alternativo);
   font-weight: bold;
 }
 
@@ -46,7 +66,7 @@ header {
 
 .header-botoes-gerais {
   text-decoration: none;
-  color: #efedfc;
+  color: var(--cor-texto);
   font-size: 30px;
   padding: 15px;
   margin: 0 10px;
@@ -54,7 +74,7 @@ header {
 
 .header-botoes-gerais-atual {
   border-radius: 50px;
-  background-color: #c2a9fa;
+  background-color: var(--cor-botoes);
 }
 
 .header-botoes-tema {
@@ -62,7 +82,7 @@ header {
   border-radius: 100%;
   width: 5vw;
   height: 5vw;
-  background-color: #f6d776;
+  background-color: var(--cor-botao--tema);
 }
 
 /*
@@ -79,7 +99,7 @@ Parte do main
 .main-home__apresentacao {
   font-size: 30px;
   text-align: center;
-  background: #986bfa;
+  background: var(--cor-elementos);
   border-radius: 30px;
   width: 60vw;
   max-height: 400px;
@@ -111,7 +131,7 @@ footer {
 
 .footer-sobre-conteudo {
   line-height: 1.5;
-  background: #161426;
+  background: var(--cor-fundo--alternativo);
   border-radius: 30px;
   padding: 20px;
 }
