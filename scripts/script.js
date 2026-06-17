@@ -8,44 +8,97 @@ import curso5 from "../jsons/curso5.json" with { type: "json" };
 const telaHome = document.querySelector("#home");
 const telaAreaEstudo = document.querySelector("#area-estudo");
 const telaAreaAluno = document.querySelector("#area-aluno");
-const listaConteudos = document.querySelector("#container-conteudos")
-const botaoTema = document.querySelector(".header-botoes-tema");
 
-var lista_cursos = [curso1, curso2, curso3, curso4, curso5];
+const listaConteudos = document.querySelector("#container-conteudos");
+const botaoTema = document.querySelector(".header-botoes-tema");
+const botaoFiltroMatriculados = document.querySelector(
+  "#main-filtro-matriculados",
+);
+
+var lista_cursos = [curso1, curso2, curso3, curso4, curso5]; //lista com todos os cursos
+var lista_cursos_matriculados = [curso1, curso4]; //lista com cursos matriculados. Criada dinamicamente.
 
 function carregarCursos() {
-  var iteravel = 1;
-  for (const curso in lista_cursos) {
-    const criarLink = document.createElement('a');
-    const linha = document.createElement('hr'); //linha que separa o titulo e a descricao
-    linha.className = "linha_container_curso";
-    const tituloCurso = document.createElement('div'); //define o titulo dentro da tag a
-    tituloCurso.className = "curso_titulo";
-    const descricaoCurso = document.createElement('div'); //define a descricao
-    descricaoCurso.className = "curso_descricao";
-
-    if (!Object.hasOwn(lista_cursos, curso)) continue;
-
-    const element = lista_cursos[curso];
-
-    criarLink.className = "main-conteudos__grid-links";
-    criarLink.href = "curso.html";
-    criarLink.id = `curso-${iteravel}`;
-    tituloCurso.innerHTML = element.curso;
-    descricaoCurso.innerHTML = element.descricao;
-    criarLink.append(tituloCurso, linha, descricaoCurso);
-    listaConteudos.appendChild(criarLink)
-    iteravel++;
+  listaConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
+  //chama a função CarregarCurso
+  if (botaoFiltroMatriculados.classList.contains("filtro-matriculados-true")) {
+    //verifica se o filtro esta ativado
+    for (const curso in lista_cursos_matriculados) {
+      //trabalha com a lista de cursos matriculados
+      if (!Object.hasOwn(lista_cursos_matriculados, curso)) continue;
+      carregarCurso(lista_cursos_matriculados[curso]);
+    }
+  } else {
+    for (const curso in lista_cursos) {
+      //trabalha com a lista de cursos geral
+      if (!Object.hasOwn(lista_cursos, curso)) continue;
+      carregarCurso(lista_cursos[curso]);
+    }
   }
+}
+function carregarCurso(curso) {
+  //carrega um curso
+  const criarLink = document.createElement("a");
+  const linha = document.createElement("hr"); //linha que separa o titulo e a descricao
+  linha.className = "linha_container_curso";
+  const tituloCurso = document.createElement("div"); //define o titulo dentro da tag a
+  tituloCurso.className = "curso_titulo";
+  const descricaoCurso = document.createElement("div"); //define a descricao
+  descricaoCurso.className = "curso_descricao";
 
+  criarLink.className = "main-conteudos__grid-links";
+  criarLink.href = "curso.html";
+  criarLink.id = curso.idCurso;
+  tituloCurso.innerHTML = curso.curso;
+  descricaoCurso.innerHTML = curso.descricao;
+  criarLink.append(tituloCurso, linha, descricaoCurso);
+  listaConteudos.appendChild(criarLink);
+}
+
+function filtrarMatriculados() {
+  if (botaoFiltroMatriculados.classList.contains("filtro-matriculados-true")) {
+    botaoFiltroMatriculados.className = "filtro-matriculados-false";
+  } else {
+    botaoFiltroMatriculados.className = "filtro-matriculados-true";
+  }
+  carregarCursos();
+}
+
+function matricular(id) {
+  //deve ser chamada quando o botão "matricular" for clicado.
+  if (document.querySelector(`#${id}`)) {
+    const cursoSelecionado = document.querySelector(`#${id}`);
+    for (const element in lista_cursos) {
+      if (element.idCurso === id) {
+        const curso = element;
+        break;
+      }
+    }
+    if (lista_cursos_matriculados.contains(curso)) {
+      lista_cursos_matriculados = lista_cursos_matriculados.filter(
+        (element) => element !== curso,
+      );
+    } else {
+      lista_cursos_matriculados.push(curso);
+    }
+  } else {
+    return;
+  }
 }
 
 window.onload = () => {
+  //Carrega os cursos caso
   if (listaConteudos) {
     carregarCursos();
+    botaoFiltroMatriculados.className = "filtro-matriculados-false";
   }
-}
+};
 
 botaoTema.addEventListener("click", () => {
-  alert('clicou no tema');
+  alert("clicou no tema");
+});
+
+botaoFiltroMatriculados.addEventListener("click", () => {
+  //ativa/desativa o filtro de cursos matriculados
+  filtrarMatriculados();
 });

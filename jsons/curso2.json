@@ -1,5 +1,6 @@
 {
   "curso": "POO intermediário",
+  "idCurso": "curso-2",
   "descricao": "",
   "aulas": {
     "aula 1": "Esta é a aula 1",

@@ -1,5 +1,6 @@
 {
   "curso": "POO introdução",
+  "idCurso": "curso-1",
   "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies feugiat eros, et porttitor erat volutpat vel. Morbi id ipsum quis neque pulvinar tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies feugiat eros, et porttitor erat volutpat vel. Morbi id ipsum quis neque pulvinar tempus.",
   "aulas": {
     "aula 1": "Esta é a aula 1",

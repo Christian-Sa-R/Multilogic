@@ -1,3 +1,36 @@
+@import url("cores.css");
+
+/* Parte da linha de filtros */
+.main-linha-filtros {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin: 0 7vw;
+}
+.main-linha-filtro-especifico {
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--cor-fundo--alternativo);
+  padding: 15px;
+  border-radius: 20px;
+}
+#main-filtro-matriculados {
+  width: 60px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 0 10px;
+}
+.filtro-matriculados-false {
+  background-color: var(--cor-extra);
+}
+.filtro-matriculados-true {
+  background-color: var(--cor-botoes);
+}
+
+/* Fim da parte da linha de filtros */
+
 .main-conteudos {
   display: flex;
   align-items: center;
@@ -22,7 +55,6 @@
   width: 40vw;
   height: 200px;
   padding: 0 10px;
-
 }
 
 .curso_titulo {
