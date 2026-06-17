@@ -3,8 +3,15 @@
   "idCurso": "curso-4",
   "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies feugiat eros, et porttitor erat volutpat vel. Morbi id ipsum quis neque pulvinar tempus.",
   "aulas": {
-    "aula 1": "Esta é a aula 1",
-    "aula 2": "Esta é a aula 2",
-    "aula 3": "Esta é a aula 3"
+    "aula 1": {
+      "descricaoAula": "Lorem ipsum dolor sit amet",
+      "tituloAula": "Esta é a aula 1",
+      "conteudo": "<p>teste</p>"
+    },
+    "aula 2": {
+      "descricaoAula": "Lorem ipsum dolor sit amet",
+      "tituloAula": "Esta é a aula 2",
+      "conteudo": "<p>teste dois</p>"
+    }
   }
 }
