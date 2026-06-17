@@ -12,14 +12,33 @@
   grid-auto-rows: repeat(auto-fill);
   gap: 30px 2vw;
 }
+
 .main-conteudos__grid-links {
   text-decoration: none;
   place-content: center;
-  font-size: 30px;
   background: #986bfa;
   color: #efedfc;
   border-radius: 30px;
   width: 40vw;
   height: 200px;
-  padding: 10px;
+  padding: 0 10px;
+
+}
+
+.curso_titulo {
+  padding: 20px;
+  font-size: 35px;
+  height: 35%;
+  font-weight: bold;
+}
+
+.curso_descricao {
+  font-size: 20px;
+  height: 35%;
+  overflow: hidden;
+}
+
+.linha_container_curso {
+  color: white;
+  margin: 0 20px;
 }
