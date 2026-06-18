@@ -5,7 +5,7 @@
   align-self: flex-start;
   display: flex;
   flex-direction: row;
-  margin: 0 7vw;
+  margin-inline-start: 7vw;
 }
 
 .main-linha-filtro-especifico {
@@ -18,11 +18,12 @@
   border-radius: 20px;
 }
 
-#main-filtro-matriculados {
+.main-filtro-botoes {
   width: 60px;
   height: 40px;
   border-radius: 20px;
   margin: 0 10px;
+  background-color: var(--cor-botoes);
 }
 
 .filtro-matriculados-false {
