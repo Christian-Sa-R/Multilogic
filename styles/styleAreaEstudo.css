@@ -7,6 +7,7 @@
   flex-direction: row;
   margin: 0 7vw;
 }
+
 .main-linha-filtro-especifico {
   width: auto;
   display: flex;
@@ -16,20 +17,34 @@
   padding: 15px;
   border-radius: 20px;
 }
+
 #main-filtro-matriculados {
   width: 60px;
   height: 40px;
   border-radius: 20px;
   margin: 0 10px;
 }
+
 .filtro-matriculados-false {
   background-color: var(--cor-extra);
 }
+
 .filtro-matriculados-true {
   background-color: var(--cor-botoes);
 }
 
 /* Fim da parte da linha de filtros */
+
+.main-conteudos__empty {
+  font-size: 30px;
+  text-align: center;
+  background: var(--cor-elementos);
+  border-radius: 30px;
+  width: 80vw;
+  height: auto;
+  padding: 40px;
+  margin-inline: 10vw;
+}
 
 .main-conteudos {
   display: flex;
