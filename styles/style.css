@@ -59,7 +59,7 @@ header {
   background-color: var(--cor-botoes);
 }
 
-.header-botoes-tema {
+#header-botao-tema {
   font-size: 30px;
   border-radius: 100%;
   width: 5vw;
