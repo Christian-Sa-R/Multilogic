@@ -15,10 +15,14 @@
   flex-direction: row;
   background-color: var(--cor-fundo--alternativo);
   padding: 15px;
+  margin-right: 10px;
   border-radius: 20px;
 }
 
 .main-filtro-botoes {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--cor-texto);
   width: 60px;
   height: 40px;
   border-radius: 20px;
@@ -26,11 +30,11 @@
   background-color: var(--cor-botoes);
 }
 
-.filtro-matriculados-false {
+.botao-false {
   background-color: var(--cor-extra);
 }
 
-.filtro-matriculados-true {
+.botao-true {
   background-color: var(--cor-botoes);
 }
 
