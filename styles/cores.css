@@ -1,11 +1,11 @@
 :root {
-  --cor-fundo: #000000;
-  --cor-texto: #efedfc;
-  --cor-fundo--alternativo: #161426;
-  --cor-botoes: #c2a9fa;
-  --cor-elementos: #986bfa;
-  --cor-botao--tema: #f6d776;
-  --cor-extra: #a1a2a9;
+  --cor-fundo: #efedfc;
+  --cor-texto: #000000;
+  --cor-fundo--alternativo: #a1a2a9;
+  --cor-botoes: #9e77f2;
+  --cor-elementos: #8857f2;
+  --cor-botao--tema: #d2d3d9;
+  --cor-extra: #161426;
 }
 
 body.dark {
