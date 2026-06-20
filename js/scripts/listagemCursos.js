@@ -1,6 +1,6 @@
 import { lista_cursos } from "../variaveis/cursos.js";
 import * as telas from "../variaveis/telas.js";
-import { listaConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
+import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { criarMensagem } from "../estruturas/mensagemSemConteudo.js";
 import { carregarAulas } from "./listagemAulas.js";
@@ -32,11 +32,11 @@ function carregarCurso(curso) {
   //carrega um curso
   const criarLink = document.createElement("a");
   const linha = document.createElement("hr"); //linha que separa o titulo e a descricao
-  linha.className = "linha_container_curso";
+  linha.className = "linha_container_conteudo";
   const tituloCurso = document.createElement("div"); //define o titulo dentro da tag a
-  tituloCurso.className = "curso_titulo";
+  tituloCurso.className = "conteudo_titulo";
   const descricaoCurso = document.createElement("div"); //define a descricao
-  descricaoCurso.className = "curso_descricao";
+  descricaoCurso.className = "conteudo_descricao";
 
   criarLink.className = "main-conteudos__grid-links";
   criarLink.href = "#";
@@ -44,18 +44,18 @@ function carregarCurso(curso) {
   tituloCurso.innerHTML = curso.curso;
   descricaoCurso.innerHTML = curso.descricao;
   criarLink.append(tituloCurso, linha, descricaoCurso);
-  listaConteudos.appendChild(criarLink);
+  gridConteudos.appendChild(criarLink);
   criarClickCurso(curso.idCurso);
 }
 export function carregarCursos() {
   //carrega todos os cursos chamando a funcao de carregar curso
   carregarLinhaFiltrosBotoes();
-  listaConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
+  gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
   if (estadoFiltroMatriculados) {
     //verifica se o filtro esta ativado
     if (lista_cursos_matriculados.length === 0) {
       //verifica se a lista de cursos matriculados esta vazia
-      listaConteudos.appendChild(
+      gridConteudos.appendChild(
         criarMensagem("Você ainda não está matriculado em nenhum curso... :("),
       );
     } else {
@@ -69,7 +69,7 @@ export function carregarCursos() {
     //caso o filtro esteja desativado:
     if (lista_cursos.length === 0) {
       //verifica se a lista de cursos matriculados esta vazia
-      listaConteudos.appendChild(criarMensagem("Não tem cursos no sistema :("));
+      gridConteudos.appendChild(criarMensagem("Não tem cursos no sistema :("));
     } else {
       for (const curso in lista_cursos) {
         //trabalha com a lista de cursos geral
@@ -99,7 +99,7 @@ function filtrarMatriculados() {
 
 window.onload = () => {
   //Carrega os cursos
-  if (listaConteudos) {
+  if (gridConteudos) {
     carregarCursos();
   }
 };

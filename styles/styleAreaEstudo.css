@@ -77,20 +77,20 @@
   padding: 0 10px;
 }
 
-.curso_titulo {
+.conteudo_titulo {
   padding: 20px;
   font-size: 35px;
   height: 35%;
   font-weight: bold;
 }
 
-.curso_descricao {
+.conteudo_descricao {
   font-size: 20px;
   height: 35%;
   overflow: hidden;
 }
 
-.linha_container_curso {
+.linha_container_conteudo {
   color: white;
   margin: 0 20px;
 }

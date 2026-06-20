@@ -16,10 +16,7 @@ export function matricular(id) {
     if (matriculado(curso.idCurso)) {
       for (const element in lista_cursos_matriculados) {
         if (lista_cursos_matriculados[element].idCurso === curso.idCurso) {
-          console.log(lista_cursos_matriculados);
-          console.log(element);
           lista_cursos_matriculados.splice(element, 1);
-          console.log(lista_cursos_matriculados);
           break;
         }
       }

@@ -4,14 +4,16 @@
   "descricao": "",
   "aulas": {
     "aula 1": {
+      "idAula": "aula-1",
       "descricaoAula": "Lorem ipsum dolor sit amet",
-      "tituloAula": "Esta é a aula 1",
+      "tituloAula": "Aula 1...",
       "conteudo": "<p>teste</p>"
     },
     "aula 2": {
-      "descricaoAula": "Lorem ipsum dolor sit amet",
-      "tituloAula": "Esta é a aula 2",
-      "conteudo": "<p>teste dois</p>"
+      "idAula": "aula-2",
+      "descricaoAula": "",
+      "tituloAula": "Aula 2...",
+      "conteudo": ""
     }
   }
 }
