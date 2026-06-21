@@ -4,7 +4,7 @@ import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { criarMensagem } from "../estruturas/mensagemSemConteudo.js";
 import { carregarAulas } from "./listagemAulas.js";
-import { lista_cursos_matriculados } from "./matriculas.js";
+import { lista_cursos_matriculados } from "../variaveis/listas.js";
 
 let estadoFiltroMatriculados = false;
 let botaoFiltroMatriculados;

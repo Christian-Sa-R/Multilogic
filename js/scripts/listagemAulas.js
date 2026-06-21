@@ -5,8 +5,8 @@ import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { carregarCursos } from "./listagemCursos.js";
 import { criarMensagem } from "../estruturas/mensagemSemConteudo.js";
 import { carregarConteudoAula } from "./aula.js";
+import { lista_cursos_matriculados } from "../variaveis/listas.js";
 import {
-  lista_cursos_matriculados,
   matricular,
   matriculado,
 } from "./matriculas.js";

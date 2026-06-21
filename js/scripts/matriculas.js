@@ -1,8 +1,6 @@
 import { lista_cursos } from "../variaveis/cursos.js";
+import { lista_cursos_matriculados } from "../variaveis/listas.js";
 let curso, cursoSelecionado;
-
-export let lista_cursos_matriculados =
-  JSON.parse(localStorage.getItem("cursosMatriculados")) || []; //lista com cursos matriculados. Recuperada do localstorage ou criada.
 
 export function matricular(id) {
   //deve ser chamada quando o botão "matricular" for clicado.
