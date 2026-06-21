@@ -17,7 +17,6 @@ let lista_aulas = []; //puxa do json no momento que a função carregarAulas for
 
 function criarListaAulas(curso) {
   lista_aulas = Object.values(curso.aulas); //pega as aulas do curso
-  console.log(lista_aulas);
 }
 
 function carregarLinhaFiltrosBotoes() {
@@ -102,7 +101,6 @@ function voltarBotao() {
 function criarClickAula(id) {
   const aulaClick = document.querySelector(`#${id}`);
   aulaClick.addEventListener("click", () => {
-    console.log(id, cursoAtual);
     carregarConteudoAula(lista_aulas, id, cursoAtual);
   });
 }
