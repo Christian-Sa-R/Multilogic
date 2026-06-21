@@ -1,13 +1,25 @@
 // para utilizar o js no header e footer
-let temaEscuro = true;
+let tema = JSON.parse(localStorage.getItem("tema")) || "dark";
 
 const body = document.querySelector("body");
 const botaoTema = document.querySelector("#header-botao-tema");
 
 function alternarTema() {
-    temaEscuro = !temaEscuro;
+    if (tema === "light") {
+        body.classList.add("dark");
+        botaoTema.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        tema = "dark";
+    } else {
+        body.classList.remove("dark");
+        botaoTema.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        tema = "light";
+    }
+    console.log(tema);
+    localStorage.setItem("tema", JSON.stringify(`${tema}`));
+}
 
-    if (temaEscuro) {
+function checarTema() {
+    if (tema === "dark") {
         body.classList.add("dark");
         botaoTema.innerHTML = '<i class="fa-solid fa-sun"></i>';
     } else {
@@ -15,6 +27,10 @@ function alternarTema() {
         botaoTema.innerHTML = '<i class="fa-solid fa-moon"></i>';
     }
 }
+
+window.addEventListener("load", () => {
+    checarTema();
+});
 
 botaoTema.addEventListener("click", () => {
     alternarTema();

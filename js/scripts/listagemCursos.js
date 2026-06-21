@@ -97,9 +97,9 @@ function filtrarMatriculados() {
   carregarCursos();
 }
 
-window.onload = () => {
+window.addEventListener("load", () => {
   //Carrega os cursos
   if (gridConteudos) {
     carregarCursos();
   }
-};
+});
