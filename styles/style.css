@@ -108,12 +108,39 @@ footer {
 
 .footer-sobre {
   font-weight: bold;
+  color: var(--cor-elementos);
   width: 35vw;
 }
 
 .footer-sobre-conteudo {
   line-height: 1.5;
   background: var(--cor-fundo--alternativo);
+  color: var(--cor-texto);
   border-radius: 30px;
   padding: 20px;
+}
+
+
+/*
+Parte do main-index
+*/
+
+.main-index-seletor {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+}
+
+.main-index-seletor-botao {
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-size: 30px;
+  background-color: var(--cor-elementos);
+  padding: 30px;
+  border-radius: 30px;
+  width: 20vw;
+  text-align: center;
 }
