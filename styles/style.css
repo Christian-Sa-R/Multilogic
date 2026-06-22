@@ -65,6 +65,12 @@ header {
   width: 5vw;
   height: 5vw;
   background-color: var(--cor-botao--tema);
+  margin-inline-start: 15px;
+}
+
+.header-botao-sair {
+  border-radius: 50px;
+  background-color: var(--cor-elementos);
 }
 
 /*
@@ -119,7 +125,6 @@ footer {
   border-radius: 30px;
   padding: 20px;
 }
-
 
 /*
 Parte do main-index
