@@ -12,6 +12,7 @@ import { lista_cursos } from "../variaveis/cursos.js";
 
 export function carregarCursosProfessor() {
   linhaFiltrosBotoes.style.display = "none";
+  gridConteudos.innerHTML = "";
   if (lista_cursos_professor.length === 0) {
     gridConteudos.style.display = "none"; //oculta a grid de conteudos
     criarMensagem("Você ainda não cadastrou nenhum curso :(");
