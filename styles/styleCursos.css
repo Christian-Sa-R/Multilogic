@@ -41,6 +41,9 @@
 /* Fim da parte da linha de filtros */
 
 .main-conteudos__empty {
+  display: none;
+  align-items: center;
+  justify-content: center;
   font-size: 30px;
   text-align: center;
   background: var(--cor-elementos);
@@ -48,22 +51,21 @@
   width: 80vw;
   height: auto;
   padding: 40px;
-  margin-inline: 10vw;
+  margin: 20px 8vw;
 }
 
 .main-conteudos {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
 }
 
 .main-conteudos__grid {
   display: grid;
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: repeat(auto-fill);
   gap: 30px 2vw;
+  margin: 30px 0;
 }
 
 .main-conteudos__grid-links {

@@ -1,15 +1,17 @@
 import * as telas from "../variaveis/telas.js";
 import { lista_cursos } from "../variaveis/cursos.js";
-import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
+import {
+  divMensagem,
+  gridConteudos,
+  linhaFiltrosBotoes,
+} from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { carregarCursos } from "./listagemCursos.js";
-import { criarMensagem } from "../estruturas/mensagemSemConteudo.js";
+import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarConteudoAula } from "./aula.js";
 import { lista_cursos_matriculados } from "../variaveis/listas.js";
-import {
-  matricular,
-  matriculado,
-} from "./matriculas.js";
+import { matricular, matriculado } from "./matriculas.js";
+import { carregarCursosProfessor } from "./meusCursos.js";
 
 let cursoAtual;
 let botaoMatriculado, botaoVoltar;
@@ -19,7 +21,7 @@ function criarListaAulas(curso) {
   lista_aulas = Object.values(curso.aulas); //pega as aulas do curso
 }
 
-function carregarLinhaFiltrosBotoes() {
+function carregarLinhaFiltrosBotoesAluno() {
   linhaFiltrosBotoes.innerHTML = "";
 
   //cria o botao de voltar
@@ -29,7 +31,7 @@ function carregarLinhaFiltrosBotoes() {
   botaoVoltar = document.querySelector("#main-botao-voltar");
   if (botaoVoltar) {
     botaoVoltar.addEventListener("click", () => {
-      voltarBotao();
+      voltarBotaoAluno();
     });
   }
 
@@ -46,6 +48,21 @@ function carregarLinhaFiltrosBotoes() {
     }
     botaoMatriculado.addEventListener("click", () => {
       matricularBotao();
+    });
+  }
+}
+
+function carregarLinhaFiltrosBotoesProfessor() {
+  linhaFiltrosBotoes.innerHTML = "";
+
+  //cria o botao de voltar
+  linhaFiltrosBotoes.appendChild(
+    criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
+  );
+  botaoVoltar = document.querySelector("#main-botao-voltar");
+  if (botaoVoltar) {
+    botaoVoltar.addEventListener("click", () => {
+      voltarBotaoProfessor();
     });
   }
 }
@@ -70,13 +87,19 @@ function carregarAula(aula) {
   criarClickAula(aula.idAula);
 }
 
-export function carregarAulas(cursoId) {
-  cursoAtual = cursoId; //atualiza a variavel global do curso atual 
+export function carregarAulas(cursoId, professor) {
+  linhaFiltrosBotoes.style.display = "flex";
+  if (professor) {
+    carregarLinhaFiltrosBotoesProfessor();
+  } else {
+    carregarLinhaFiltrosBotoesAluno();
+  }
+  cursoAtual = cursoId; //atualiza a variavel global do curso atual
   criarListaAulas(lista_cursos.find((curso) => curso.idCurso === cursoId)); //puxa as aulas do curso selecionado
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
-  carregarLinhaFiltrosBotoes();
   if (lista_aulas.length === 0) {
-    gridConteudos.appendChild(criarMensagem("Este curso não tem aulas cadastras... >:("));
+    gridConteudos.style.display = "none"; //oculta a grid de conteudos
+    criarMensagem("Este curso não tem aulas cadastras... >:(");
   } else {
     for (const aula in lista_aulas) {
       if (!Object.hasOwn(lista_aulas, aula)) continue;
@@ -94,8 +117,11 @@ function matricularBotao() {
   matricular(cursoAtual);
 }
 
-function voltarBotao() {
+function voltarBotaoAluno() {
   carregarCursos();
+}
+function voltarBotaoProfessor() {
+  carregarCursosProfessor();
 }
 
 function criarClickAula(id) {

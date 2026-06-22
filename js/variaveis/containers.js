@@ -1,4 +1,5 @@
+const divMensagem = document.querySelector("#div-mensagem");
 const gridConteudos = document.querySelector("#grid-conteudos");
 const linhaFiltrosBotoes = document.querySelector(".main-linha-filtros");
 
-export { gridConteudos, linhaFiltrosBotoes };
+export { divMensagem, gridConteudos, linhaFiltrosBotoes };

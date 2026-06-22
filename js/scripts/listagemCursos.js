@@ -1,8 +1,12 @@
 import { lista_cursos } from "../variaveis/cursos.js";
 import * as telas from "../variaveis/telas.js";
-import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
+import {
+  divMensagem,
+  gridConteudos,
+  linhaFiltrosBotoes,
+} from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
-import { criarMensagem } from "../estruturas/mensagemSemConteudo.js";
+import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarAulas } from "./listagemAulas.js";
 import { lista_cursos_matriculados } from "../variaveis/listas.js";
 
@@ -28,7 +32,7 @@ function carregarLinhaFiltrosBotoes() {
   }
 }
 
-function carregarCurso(curso) {
+export function carregarCurso(curso, professor) {
   //carrega um curso
   const criarLink = document.createElement("a");
   const linha = document.createElement("hr"); //linha que separa o titulo e a descricao
@@ -45,7 +49,7 @@ function carregarCurso(curso) {
   descricaoCurso.innerHTML = curso.descricao;
   criarLink.append(tituloCurso, linha, descricaoCurso);
   gridConteudos.appendChild(criarLink);
-  criarClickCurso(curso.idCurso);
+  criarClickCurso(curso.idCurso, professor);
 }
 export function carregarCursos() {
   //carrega todos os cursos chamando a funcao de carregar curso
@@ -55,9 +59,8 @@ export function carregarCursos() {
     //verifica se o filtro esta ativado
     if (lista_cursos_matriculados.length === 0) {
       //verifica se a lista de cursos matriculados esta vazia
-      gridConteudos.appendChild(
-        criarMensagem("Você ainda não está matriculado em nenhum curso... :("),
-      );
+      gridConteudos.style.display = "none"; //oculta a grid de conteudos
+      criarMensagem("Você ainda não está matriculado em nenhum curso... :(");
     } else {
       for (const curso in lista_cursos_matriculados) {
         //trabalha com a lista de cursos matriculados
@@ -69,8 +72,11 @@ export function carregarCursos() {
     //caso o filtro esteja desativado:
     if (lista_cursos.length === 0) {
       //verifica se a lista de cursos matriculados esta vazia
-      gridConteudos.appendChild(criarMensagem("Não tem cursos no sistema :("));
+      gridConteudos.style.display = "none"; //oculta a grid de conteudos
+      criarMensagem("Não tem cursos no sistema :(");
     } else {
+      divMensagem.style.display = "none"; //oculta a div de mensagens
+      gridConteudos.style.display = "grid"; //exibe a grid de conteudos
       for (const curso in lista_cursos) {
         //trabalha com a lista de cursos geral
         if (!Object.hasOwn(lista_cursos, curso)) continue;
@@ -79,10 +85,10 @@ export function carregarCursos() {
     }
   }
 }
-function criarClickCurso(id) {
+function criarClickCurso(id, professor) {
   const cursoClick = document.querySelector(`#${id}`);
   cursoClick.addEventListener("click", () => {
-    carregarAulas(id);
+    carregarAulas(id, professor);
   });
 }
 
@@ -99,7 +105,7 @@ function filtrarMatriculados() {
 
 window.addEventListener("load", () => {
   //Carrega os cursos
-  if (gridConteudos) {
+  if (telas.telaAreaEstudo) {
     carregarCursos();
   }
 });
