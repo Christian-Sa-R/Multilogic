@@ -1,11 +1,17 @@
 import { criarBotaoFiltroBotoes } from "./criarBotoes.js";
-import { linhaFiltrosBotoes } from "../variaveis/containers.js";
+import {
+  linhaBotoesInferior,
+  linhaFiltrosBotoes,
+} from "../variaveis/containers.js";
 import { carregarElementosCursos } from "../scripts/meusCursosProfessor.js";
 
-let botaoVoltar;
+let botaoVoltar, botaoCadastroAula;
 
 export function carregarBotoesAulas() {
   linhaFiltrosBotoes.innerHTML = "";
+  linhaFiltrosBotoes.style.display = "flex";
+  linhaBotoesInferior.innerHTML = "";
+  linhaBotoesInferior.style.display = "flex";
 
   //cria o botao de voltar
   linhaFiltrosBotoes.appendChild(
@@ -17,6 +23,12 @@ export function carregarBotoesAulas() {
       voltarBotao();
     });
   }
+
+  //cria o botao de cadastrar nova aula
+  linhaBotoesInferior.appendChild(
+    criarBotaoFiltroBotoes("botao-cadastro-aula", "Cadastrar aula", "+"),
+  );
+  botaoCadastroAula = document.querySelector("#botao-cadastro-aula");
 }
 
 function voltarBotao() {

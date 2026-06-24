@@ -4,13 +4,19 @@ import { lista_cursos_matriculados } from "../variaveis/listas.js";
 import { telaAreaEstudo } from "../variaveis/telas.js";
 import { carregarCursos } from "./listagemCursos.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
-import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
+import {
+  gridConteudos,
+  linhaBotoesInferior,
+  linhaFiltrosBotoes,
+} from "../variaveis/containers.js";
 
 let estadoFiltroMatriculados, botaoFiltroMatriculados;
 
 function carregarBotoesCursos() {
   linhaFiltrosBotoes.innerHTML = "";
   linhaFiltrosBotoes.style.display = "flex";
+  linhaBotoesInferior.innerHTML = "";
+  linhaBotoesInferior.style.display = "none";
   linhaFiltrosBotoes.appendChild(
     criarBotaoFiltroBotoes("main-botao", "Exibir apenas matriculados"),
   );
@@ -42,6 +48,7 @@ function chamarCarregarCursos() {
   if (estadoFiltroMatriculados) {
     if (lista_cursos_matriculados.length === 0) {
       gridConteudos.style.display = "none";
+      linhaBotoesInferior.style.display = "none";
       criarMensagem("Você ainda não está matriculado em nenhum curso... :(");
     } else {
       carregarCursos(lista_cursos_matriculados);

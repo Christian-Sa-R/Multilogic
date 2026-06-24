@@ -1,4 +1,7 @@
-import { linhaFiltrosBotoes } from "../variaveis/containers.js";
+import {
+  linhaBotoesInferior,
+  linhaFiltrosBotoes,
+} from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "./criarBotoes.js";
 import { matriculado, matricular } from "../scripts/matriculas.js";
 import { carregarElementosCursos } from "../scripts/meusCursosAluno.js";
@@ -7,6 +10,9 @@ let botaoVoltar, botaoMatriculado;
 
 export function carregarBotoesAulas(cursoAtual) {
   linhaFiltrosBotoes.innerHTML = "";
+  linhaFiltrosBotoes.style.display = "flex";
+  linhaBotoesInferior.innerHTML = "";
+  linhaBotoesInferior.style.display = "none";
 
   //cria o botao de voltar
   linhaFiltrosBotoes.appendChild(

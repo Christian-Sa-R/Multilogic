@@ -1,0 +1,30 @@
+@import url("cores.css");
+
+.linha-botoes {
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--cor-fundo--alternativo);
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.botao {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  width: 60px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--cor-botoes);
+  margin: 0 10px;
+}
+
+.botao-false {
+  background-color: var(--cor-fundo);
+}
+
+.botao-true {
+  background-color: var(--cor-botoes);
+}

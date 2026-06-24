@@ -8,34 +8,12 @@
   margin-inline-start: 7vw;
 }
 
-.main-linha-filtro-especifico {
-  width: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  background-color: var(--cor-fundo--alternativo);
-  padding: 15px;
+.main-botoes {
   margin-right: 10px;
-  border-radius: 20px;
 }
 
-.main-filtro-botoes {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--cor-texto);
-  width: 60px;
-  height: 40px;
-  border-radius: 20px;
-  margin: 0 10px;
-  background-color: var(--cor-botoes);
-}
-
-.botao-false {
-  background-color: var(--cor-fundo);
-}
-
-.botao-true {
-  background-color: var(--cor-botoes);
+.main-linha-filtro-especifico {
+  margin-right: 10px;
 }
 
 /* Fim da parte da linha de filtros */
@@ -95,4 +73,17 @@
 .linha_container_conteudo {
   color: white;
   margin: 0 20px;
+}
+
+/* Fim da parte do main, inicio da linha de botoes inferior */
+
+.main-linha-inferior {
+  display: none;
+  align-self: flex-end;
+  flex-direction: row;
+  margin-inline-end: 7vw;
+}
+
+.main-linha-inferior-botoes {
+  margin-left: 10px;
 }
