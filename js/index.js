@@ -3,4 +3,5 @@ import "./scripts/aula.js";
 import "./scripts/listagemCursos.js";
 import "./scripts/listagemAulas.js";
 import "./scripts/matriculas.js";
-import "./scripts/meusCursos.js";
+import "./scripts/meusCursosAluno.js";
+import "./scripts/meusCursosProfessor.js";

@@ -11,63 +11,17 @@ import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarConteudoAula } from "./aula.js";
 import { lista_cursos_matriculados } from "../variaveis/listas.js";
 import { matricular, matriculado } from "./matriculas.js";
-import { carregarCursosProfessor } from "./meusCursos.js";
+import { carregarBotoesAulas as carregarBotoesAluno } from "../estruturas/listagemAulasAluno.js";
+import { carregarBotoesAulas as carregarBotoesProfessor } from "../estruturas/listagemAulasProfessor.js";
 
 let cursoAtual;
-let botaoMatriculado, botaoVoltar;
 let lista_aulas = []; //puxa do json no momento que a função carregarAulas for chamada
 
 function criarListaAulas(curso) {
   lista_aulas = Object.values(curso.aulas); //pega as aulas do curso
 }
 
-function carregarLinhaFiltrosBotoesAluno() {
-  linhaFiltrosBotoes.innerHTML = "";
-
-  //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
-    criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
-  );
-  botaoVoltar = document.querySelector("#main-botao-voltar");
-  if (botaoVoltar) {
-    botaoVoltar.addEventListener("click", () => {
-      voltarBotaoAluno();
-    });
-  }
-
-  //cria o botao matricular
-  linhaFiltrosBotoes.appendChild(
-    criarBotaoFiltroBotoes("main-botao-matricular", "Matricula"),
-  );
-  botaoMatriculado = document.querySelector("#main-botao-matricular");
-  if (botaoMatriculado) {
-    if (matriculado(cursoAtual)) {
-      botaoMatriculado.classList.add("botao-true");
-    } else {
-      botaoMatriculado.classList.add("botao-false");
-    }
-    botaoMatriculado.addEventListener("click", () => {
-      matricularBotao();
-    });
-  }
-}
-
-function carregarLinhaFiltrosBotoesProfessor() {
-  linhaFiltrosBotoes.innerHTML = "";
-
-  //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
-    criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
-  );
-  botaoVoltar = document.querySelector("#main-botao-voltar");
-  if (botaoVoltar) {
-    botaoVoltar.addEventListener("click", () => {
-      voltarBotaoProfessor();
-    });
-  }
-}
-
-function carregarAula(aula) {
+function carregarAula(aula, professor) {
   //carrega uma aula
   const criarLink = document.createElement("a");
   const linha = document.createElement("hr"); //linha que separa o titulo e a descricao
@@ -84,17 +38,17 @@ function carregarAula(aula) {
   descricaoAula.innerHTML = aula.descricaoAula;
   criarLink.append(tituloAula, linha, descricaoAula);
   gridConteudos.appendChild(criarLink);
-  criarClickAula(aula.idAula);
+  criarClickAula(aula.idAula, professor);
 }
 
 export function carregarAulas(cursoId, professor) {
+  cursoAtual = cursoId; //atualiza a variavel global do curso atual
   linhaFiltrosBotoes.style.display = "flex";
   if (professor) {
-    carregarLinhaFiltrosBotoesProfessor();
+    carregarBotoesProfessor();
   } else {
-    carregarLinhaFiltrosBotoesAluno();
+    carregarBotoesAluno(cursoAtual);
   }
-  cursoAtual = cursoId; //atualiza a variavel global do curso atual
   criarListaAulas(lista_cursos.find((curso) => curso.idCurso === cursoId)); //puxa as aulas do curso selecionado
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
   if (lista_aulas.length === 0) {
@@ -103,30 +57,14 @@ export function carregarAulas(cursoId, professor) {
   } else {
     for (const aula in lista_aulas) {
       if (!Object.hasOwn(lista_aulas, aula)) continue;
-      carregarAula(lista_aulas[aula]);
+      carregarAula(lista_aulas[aula], professor);
     }
   }
 }
 
-function matricularBotao() {
-  if (matriculado(cursoAtual)) {
-    botaoMatriculado.classList.replace("botao-true", "botao-false");
-  } else {
-    botaoMatriculado.classList.replace("botao-false", "botao-true");
-  }
-  matricular(cursoAtual);
-}
-
-function voltarBotaoAluno() {
-  carregarCursos();
-}
-function voltarBotaoProfessor() {
-  carregarCursosProfessor();
-}
-
-function criarClickAula(id) {
+function criarClickAula(id, professor) {
   const aulaClick = document.querySelector(`#${id}`);
   aulaClick.addEventListener("click", () => {
-    carregarConteudoAula(lista_aulas, id, cursoAtual);
+    carregarConteudoAula(lista_aulas, id, cursoAtual, professor);
   });
 }

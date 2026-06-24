@@ -4,29 +4,21 @@ import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarAulas } from "./listagemAulas.js";
+import { carregarBotoes as carregarBotoesAluno } from "../estruturas/aulaAluno.js";
+import { carregarBotoes as carregarBotoesProfessor } from "../estruturas/aulaProfessor.js";
 
 let cursoAtual;
 let botaoVoltar;
 
-function carregarLinhaFiltrosBotoes() {
-  linhaFiltrosBotoes.innerHTML = ""; //limpa a linha de filtros e botoes
-
-  //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
-    criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
-  );
-  botaoVoltar = document.querySelector("#main-botao-voltar");
-  if (botaoVoltar) {
-    botaoVoltar.addEventListener("click", () => {
-      voltarBotao();
-    });
-  }
-}
-
-export function carregarConteudoAula(lista_aulas, aulaId, cursoId) {
+export function carregarConteudoAula(lista_aulas, aulaId, cursoId, professor) {
   cursoAtual = cursoId;
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
-  carregarLinhaFiltrosBotoes();
+  if (professor) {
+    carregarBotoesProfessor(cursoId);
+  } else {
+    carregarBotoesAluno(cursoId);
+  }
+
   const aula = lista_aulas.find((aula) => aula.idAula === aulaId);
   if (aula) {
     const titulo = document.createElement("h1");
@@ -45,8 +37,4 @@ export function carregarConteudoAula(lista_aulas, aulaId, cursoId) {
   } else {
     console.error("Aula não encontrada: " + aulaId);
   }
-}
-
-function voltarBotao() {
-  carregarAulas(cursoAtual);
 }

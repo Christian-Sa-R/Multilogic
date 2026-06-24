@@ -10,28 +10,6 @@ import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarAulas } from "./listagemAulas.js";
 import { lista_cursos_matriculados } from "../variaveis/listas.js";
 
-let estadoFiltroMatriculados = false;
-let botaoFiltroMatriculados;
-
-function carregarLinhaFiltrosBotoes() {
-  linhaFiltrosBotoes.innerHTML = "";
-  linhaFiltrosBotoes.appendChild(
-    criarBotaoFiltroBotoes("main-botao", "Exibir apenas matriculados"),
-  );
-  botaoFiltroMatriculados = document.querySelector("#main-botao");
-  if (botaoFiltroMatriculados) {
-    if (estadoFiltroMatriculados) {
-      //adiciona a classe com o estado atual
-      botaoFiltroMatriculados.classList.add("botao-true");
-    } else {
-      botaoFiltroMatriculados.classList.add("botao-false");
-    }
-    botaoFiltroMatriculados.addEventListener("click", () => {
-      filtrarMatriculados();
-    });
-  }
-}
-
 export function carregarCurso(curso, professor) {
   //carrega um curso
   const criarLink = document.createElement("a");
@@ -51,37 +29,21 @@ export function carregarCurso(curso, professor) {
   gridConteudos.appendChild(criarLink);
   criarClickCurso(curso.idCurso, professor);
 }
-export function carregarCursos() {
+export function carregarCursos(lista, professor) {
   //carrega todos os cursos chamando a funcao de carregar curso
-  carregarLinhaFiltrosBotoes();
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
-  if (estadoFiltroMatriculados) {
-    //verifica se o filtro esta ativado
-    if (lista_cursos_matriculados.length === 0) {
-      //verifica se a lista de cursos matriculados esta vazia
-      gridConteudos.style.display = "none"; //oculta a grid de conteudos
-      criarMensagem("Você ainda não está matriculado em nenhum curso... :(");
-    } else {
-      for (const curso in lista_cursos_matriculados) {
-        //trabalha com a lista de cursos matriculados
-        if (!Object.hasOwn(lista_cursos_matriculados, curso)) continue;
-        carregarCurso(lista_cursos_matriculados[curso]);
-      }
-    }
+  gridConteudos.style.display = "grid";
+  if (lista.length === 0) {
+    //verifica se a lista de cursos matriculados esta vazia
+    gridConteudos.style.display = "none"; //oculta a grid de conteudos
+    criarMensagem("Não tem cursos para exibir :(");
   } else {
-    //caso o filtro esteja desativado:
-    if (lista_cursos.length === 0) {
-      //verifica se a lista de cursos matriculados esta vazia
-      gridConteudos.style.display = "none"; //oculta a grid de conteudos
-      criarMensagem("Não tem cursos no sistema :(");
-    } else {
-      divMensagem.style.display = "none"; //oculta a div de mensagens
-      gridConteudos.style.display = "grid"; //exibe a grid de conteudos
-      for (const curso in lista_cursos) {
-        //trabalha com a lista de cursos geral
-        if (!Object.hasOwn(lista_cursos, curso)) continue;
-        carregarCurso(lista_cursos[curso]);
-      }
+    divMensagem.style.display = "none"; //oculta a div de mensagens
+    gridConteudos.style.display = "grid"; //exibe a grid de conteudos
+    for (const curso in lista) {
+      //trabalha com a lista de cursos geral
+      if (!Object.hasOwn(lista, curso)) continue;
+      carregarCurso(lista[curso], professor);
     }
   }
 }
@@ -91,21 +53,3 @@ function criarClickCurso(id, professor) {
     carregarAulas(id, professor);
   });
 }
-
-function filtrarMatriculados() {
-  if (estadoFiltroMatriculados) {
-    botaoFiltroMatriculados.classList.replace("botao-true", "botao-false");
-    estadoFiltroMatriculados = false;
-  } else {
-    botaoFiltroMatriculados.classList.replace("botao-false", "botao-true");
-    estadoFiltroMatriculados = true;
-  }
-  carregarCursos();
-}
-
-window.addEventListener("load", () => {
-  //Carrega os cursos
-  if (telas.telaAreaEstudo) {
-    carregarCursos();
-  }
-});
