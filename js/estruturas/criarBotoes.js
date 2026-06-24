@@ -1,6 +1,6 @@
 export function criarBotaoFiltroBotoes(idBotao, texto, textoBotao = "") {
   const divBotao = document.createElement("div"); // cria a div que vai conter o botão e o texto.
-  divBotao.className = "linha-filtro-especifico linha-botoes";
+  divBotao.className = "linha-botoes";
 
   const botao = document.createElement("button"); // cria o botão.
   botao.id = idBotao; //"main-filtro-matriculados"

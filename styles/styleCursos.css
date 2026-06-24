@@ -4,15 +4,12 @@
 .main-linha-filtros {
   align-self: flex-start;
   display: flex;
+  gap: 10px;
   flex-direction: row;
   margin-inline-start: 7vw;
 }
 
 .main-botoes {
-  margin-right: 10px;
-}
-
-.main-linha-filtro-especifico {
   margin-right: 10px;
 }
 
@@ -82,8 +79,4 @@
   align-self: flex-end;
   flex-direction: row;
   margin-inline-end: 7vw;
-}
-
-.main-linha-inferior-botoes {
-  margin-left: 10px;
 }
