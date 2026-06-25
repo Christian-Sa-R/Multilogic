@@ -1,7 +1,7 @@
 @import url("cores.css");
 
 .linha-botoes {
-  width: auto;
+  width: max-content;
   display: flex;
   align-items: center;
   flex-direction: row;

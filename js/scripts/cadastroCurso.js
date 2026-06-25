@@ -11,7 +11,6 @@ import { carregarElementosCursos } from "./meusCursosProfessor.js";
 
 let botaoVoltar,
   botaoLimpar,
-  botaoSalvar,
   salvar = false;
 
 function carregarBotoes() {
@@ -30,6 +29,8 @@ function carregarBotoes() {
   botaoVoltar = document.querySelector("#botao-voltar");
   if (botaoVoltar) {
     botaoVoltar.addEventListener("click", () => {
+      divConteudo.innerHTML = "";
+      divConteudo.style.display = "none";
       carregarElementosCursos();
     });
   }
@@ -40,22 +41,54 @@ function carregarBotoes() {
       carregarDivConteudo();
     });
   }
-  //cria os botoes inferiores
-  linhaBotoesInferior.append(criarBotaoFiltroBotoes("botao-salvar", "Salvar"));
-  //cria o comportamento do botao salvar
-  botaoSalvar = document.querySelector("#botao-salvar");
-  botaoSalvar.addEventListener("click", () => {
-    if (salvar) {
-      carregarElementosCursos();
-    } else {
-      criarMensagem("Preencha os campos obrigatórios >:(");
-    }
-  });
 }
+
 function carregarDivConteudo() {
+  divMensagem.style.display = "none";
   divConteudo.style.display = "flex";
+  divConteudo.innerHTML = "";
   gridConteudos.style.display = "none";
+
+  //cria o form
+  let formulario = document.createElement("form");
+  formulario.classList.add("form-cadastro-curso");
+  formulario.id = "formulario-curso";
+  formulario.action = "#";
+
+  //cria a label de nome
+  let labelNome = document.createElement("label");
+  let labelNomeTexto = document.createElement("span");
+  labelNomeTexto.innerHTML = "Nome do curso:";
+  //cria o input do nome
+  let inputNome = document.createElement("input");
+  inputNome.type = "text";
+  inputNome.className = "form-input"
+  inputNome.placeholder = "Digite o nome do curso...";
+  inputNome.name = "nome-curso";
+  inputNome.required = true;
+
+  labelNome.append(labelNomeTexto, inputNome);
+
+  let labelDescricao = document.createElement("label");
+  let labelDescricaoTexto = document.createElement("span");
+  labelDescricaoTexto.innerHTML = "Descrição:";
+  //cria o input da descrição
+  let inputDescricao = document.createElement("textarea");
+  inputDescricao.className = "form-input input-texto-longo";
+  inputDescricao.placeholder = "Descrição...";
+  inputDescricao.rows = "3";
+  inputDescricao.maxLength = "176";
+  inputDescricao.name = "descricao-curso";
+
+  labelDescricao.append(labelDescricaoTexto, inputDescricao);
+
+  let botaoSalvar = criarBotaoFiltroBotoes("botao-salvar-form", "Salvar")
+  botaoSalvar.type = "submit";
+
+  divConteudo.append(formulario);
+  formulario.append(labelNome, labelDescricao, botaoSalvar);
 }
+
 export function carregarCadastrarCurso() {
   carregarBotoes();
   carregarDivConteudo();

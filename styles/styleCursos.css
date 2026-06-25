@@ -76,6 +76,54 @@
   display: none;
 }
 
+.form-cadastro-curso {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 40vw;
+  gap: 20px;
+}
+
+.form-cadastro-curso label {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-cadastro-curso label span {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+  font-size: 1.2rem;
+  color: var(--cor-texto);
+  font-weight: bold;
+}
+
+.form-input::placeholder {
+  color: var(--cor-botoes);
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.form-input:user-invalid {
+  border: 1px solid red;
+}
+
+.form-input {
+  border: 1px solid var(--cor-elementos);
+  border-radius: 15px;
+  background: var(--cor-elementos);
+  color: var(--cor-texto);
+  padding: 10px;
+  width: 100%;
+}
+
+.input-texto-longo {
+  resize: vertical;
+}
+
 /* Fim da parte do main, inicio da linha de botoes inferior */
 
 .main-linha-inferior {
