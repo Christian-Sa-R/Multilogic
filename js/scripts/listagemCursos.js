@@ -29,21 +29,23 @@ export function carregarCurso(curso, professor) {
   gridConteudos.appendChild(criarLink);
   criarClickCurso(curso.idCurso, professor);
 }
-export function carregarCursos(lista, professor) {
+export function carregarCursos(
+  lista,
+  { professor = false, mensagem = "Não tem cursos para exibir :(" } = {},
+) {
   //carrega todos os cursos chamando a funcao de carregar curso
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
-  gridConteudos.style.display = "grid";
+  gridConteudos.style.display = "grid"; //exibe a grid de conteudos
   if (lista.length === 0) {
-    //verifica se a lista de cursos matriculados esta vazia
+    //verifica se a lista de cursos esta vazia
     gridConteudos.style.display = "none"; //oculta a grid de conteudos
-    criarMensagem("Não tem cursos para exibir :(");
+    criarMensagem(mensagem);
   } else {
     divMensagem.style.display = "none"; //oculta a div de mensagens
-    gridConteudos.style.display = "grid"; //exibe a grid de conteudos
-    for (const curso in lista) {
-      //trabalha com a lista de cursos geral
-      if (!Object.hasOwn(lista, curso)) continue;
-      carregarCurso(lista[curso], professor);
+    for (const curso in lista_cursos) {
+      if (lista.some((c) => c.idCurso === lista_cursos[curso].idCurso)) {
+        carregarCurso(lista_cursos[curso], professor);
+      }
     }
   }
 }

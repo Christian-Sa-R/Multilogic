@@ -15,7 +15,7 @@ export function carregarBotoesAulas(cursoAtual) {
   linhaBotoesInferior.style.display = "none";
 
   //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
+  linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
   );
   botaoVoltar = document.querySelector("#main-botao-voltar");
@@ -26,7 +26,7 @@ export function carregarBotoesAulas(cursoAtual) {
   }
 
   //cria o botao matricular
-  linhaFiltrosBotoes.appendChild(
+  linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao-matricular", "Matricula"),
   );
   botaoMatriculado = document.querySelector("#main-botao-matricular");

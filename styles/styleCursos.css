@@ -72,6 +72,10 @@
   margin: 0 20px;
 }
 
+.main-conteudos__geral {
+  display: none;
+}
+
 /* Fim da parte do main, inicio da linha de botoes inferior */
 
 .main-linha-inferior {

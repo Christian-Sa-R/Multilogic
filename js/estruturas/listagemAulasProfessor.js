@@ -14,7 +14,7 @@ export function carregarBotoesAulas() {
   linhaBotoesInferior.style.display = "flex";
 
   //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
+  linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
   );
   botaoVoltar = document.querySelector("#main-botao-voltar");
@@ -25,7 +25,7 @@ export function carregarBotoesAulas() {
   }
 
   //cria o botao de cadastrar nova aula
-  linhaBotoesInferior.appendChild(
+  linhaBotoesInferior.append(
     criarBotaoFiltroBotoes("botao-cadastro-aula", "Cadastrar aula", "+"),
   );
   botaoCadastroAula = document.querySelector("#botao-cadastro-aula");

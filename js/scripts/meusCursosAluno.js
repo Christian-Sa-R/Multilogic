@@ -17,7 +17,7 @@ function carregarBotoesCursos() {
   linhaFiltrosBotoes.style.display = "flex";
   linhaBotoesInferior.innerHTML = "";
   linhaBotoesInferior.style.display = "none";
-  linhaFiltrosBotoes.appendChild(
+  linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao", "Exibir apenas matriculados"),
   );
   botaoFiltroMatriculados = document.querySelector("#main-botao");
@@ -46,13 +46,9 @@ function filtrarMatriculados() {
 
 function chamarCarregarCursos() {
   if (estadoFiltroMatriculados) {
-    if (lista_cursos_matriculados.length === 0) {
-      gridConteudos.style.display = "none";
-      linhaBotoesInferior.style.display = "none";
-      criarMensagem("Você ainda não está matriculado em nenhum curso... :(");
-    } else {
-      carregarCursos(lista_cursos_matriculados);
-    }
+    carregarCursos(lista_cursos_matriculados, {
+      mensagem: "Você ainda não está matriculado em nenhum curso... :(",
+    });
   } else {
     carregarCursos(lista_cursos);
   }

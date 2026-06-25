@@ -9,6 +9,7 @@ import {
 } from "../variaveis/containers.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
+import { carregarCadastrarCurso } from "./cadastroCurso.js";
 
 let botaoCadastroCurso;
 
@@ -19,21 +20,22 @@ function carregarBotoes() {
   linhaBotoesInferior.innerHTML = "";
   linhaBotoesInferior.style.display = "flex";
   // cria o botao de adicionar curso
-  linhaBotoesInferior.appendChild(
+  linhaBotoesInferior.append(
     criarBotaoFiltroBotoes("botao-adicionar-curso", "Cadastrar curso", "+"),
   );
   botaoCadastroCurso = document.querySelector("#botao-adicionar-curso");
+  if (botaoCadastroCurso) {
+    botaoCadastroCurso.addEventListener("click", () => {
+      carregarCadastrarCurso();
+    });
+  }
 }
 
 function chamarCarregarCursos() {
-  if (lista_cursos_professor.length === 0) {
-    linhaFiltrosBotoes.style.display = "none";
-    gridConteudos.style.display = "none"; //oculta a grid de conteudos
-    linhaBotoesInferior.style.display = "none";
-    criarMensagem("Você ainda não cadastrou nenhum curso :(");
-  } else {
-    carregarCursos(lista_cursos_professor, true);
-  }
+  carregarCursos(lista_cursos_professor, {
+    professor: true,
+    mensagem: "Você ainda não cadastrou nenhum curso :(",
+  });
 }
 
 export function carregarElementosCursos() {
