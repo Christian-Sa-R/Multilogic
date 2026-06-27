@@ -9,7 +9,7 @@ import {
 } from "../variaveis/containers.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
-import { carregarCadastrarCurso } from "./cadastroCurso.js";
+import { carregarCadastrarCurso } from "../estruturas/formCadastroCurso.js";
 
 let botaoCadastroCurso;
 

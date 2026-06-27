@@ -1,5 +1,5 @@
-import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
-import { criarMensagem } from "../estruturas/criarMensagem.js";
+import { criarBotaoFiltroBotoes } from "./criarBotoes.js";
+import { criarMensagem } from "./criarMensagem.js";
 import {
   divConteudo,
   divMensagem,
@@ -7,7 +7,8 @@ import {
   linhaBotoesInferior,
   linhaFiltrosBotoes,
 } from "../variaveis/containers.js";
-import { carregarElementosCursos } from "./meusCursosProfessor.js";
+import { carregarElementosCursos } from "../scripts/meusCursosProfessor.js";
+import { adicionarListennerFormCurso } from "../scripts/persistenciaJsonsCursos.js";
 
 let botaoVoltar,
   botaoLimpar,
@@ -53,7 +54,6 @@ function carregarDivConteudo() {
   let formulario = document.createElement("form");
   formulario.classList.add("form-cadastro-curso");
   formulario.id = "formulario-curso";
-  formulario.action = "#";
 
   //cria a label de nome
   let labelNome = document.createElement("label");
@@ -62,12 +62,28 @@ function carregarDivConteudo() {
   //cria o input do nome
   let inputNome = document.createElement("input");
   inputNome.type = "text";
-  inputNome.className = "form-input"
+  inputNome.className = "form-input";
   inputNome.placeholder = "Digite o nome do curso...";
-  inputNome.name = "nome-curso";
+  inputNome.name = "nomeCurso";
   inputNome.required = true;
 
   labelNome.append(labelNomeTexto, inputNome);
+
+  //cria a label do id 
+  let labelId = document.createElement("label");
+  let labelIdTexto = document.createElement("span");
+  labelIdTexto.innerHTML = "Id do curso:";
+  //cria o input do id 
+  let inputId = document.createElement("input");
+  inputId.type = "text";
+  inputId.className = "form-input";
+  inputId.placeholder = "Digite o id do curso...";
+  inputId.name = "idCurso";
+  inputId.required = true;
+  inputId.maxLength = "10";
+  inputId.pattern = "^\\S+$";
+
+  labelId.append(labelIdTexto, inputId);
 
   let labelDescricao = document.createElement("label");
   let labelDescricaoTexto = document.createElement("span");
@@ -78,7 +94,7 @@ function carregarDivConteudo() {
   inputDescricao.placeholder = "Descrição...";
   inputDescricao.rows = "3";
   inputDescricao.maxLength = "176";
-  inputDescricao.name = "descricao-curso";
+  inputDescricao.name = "descricaoCurso";
 
   labelDescricao.append(labelDescricaoTexto, inputDescricao);
 
@@ -86,7 +102,8 @@ function carregarDivConteudo() {
   botaoSalvar.type = "submit";
 
   divConteudo.append(formulario);
-  formulario.append(labelNome, labelDescricao, botaoSalvar);
+  formulario.append(labelNome, labelId, labelDescricao, botaoSalvar);
+  adicionarListennerFormCurso();
 }
 
 export function carregarCadastrarCurso() {
