@@ -58,7 +58,7 @@ function carregarDivConteudo() {
   //cria a label de nome
   let labelNome = document.createElement("label");
   let labelNomeTexto = document.createElement("span");
-  labelNomeTexto.innerHTML = "Nome do curso:";
+  labelNomeTexto.innerHTML = "Nome do curso*";
   //cria o input do nome
   let inputNome = document.createElement("input");
   inputNome.type = "text";
@@ -72,7 +72,7 @@ function carregarDivConteudo() {
   //cria a label do id 
   let labelId = document.createElement("label");
   let labelIdTexto = document.createElement("span");
-  labelIdTexto.innerHTML = "Id do curso:";
+  labelIdTexto.innerHTML = "Id do curso*";
   //cria o input do id 
   let inputId = document.createElement("input");
   inputId.type = "text";
@@ -87,7 +87,7 @@ function carregarDivConteudo() {
 
   let labelDescricao = document.createElement("label");
   let labelDescricaoTexto = document.createElement("span");
-  labelDescricaoTexto.innerHTML = "Descrição:";
+  labelDescricaoTexto.innerHTML = "Descrição";
   //cria o input da descrição
   let inputDescricao = document.createElement("textarea");
   inputDescricao.className = "form-input input-texto-longo";
