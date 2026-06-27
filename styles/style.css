@@ -127,25 +127,10 @@ footer {
 }
 
 /*
-Parte do main-index
+Parte do header-index
 */
 
-.main-index-seletor {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 50vh;
-}
-
-.main-index-seletor-botao {
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-size: 30px;
+.header-index-seletor-botao {
   background-color: var(--cor-elementos);
-  padding: 30px;
-  border-radius: 30px;
-  width: 20vw;
-  text-align: center;
+  border-radius: 50px;
 }
