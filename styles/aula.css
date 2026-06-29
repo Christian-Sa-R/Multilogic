@@ -1,0 +1,6 @@
+@import url("cores.css");
+
+.main-conteudos__aula {
+  display: none;
+  flex-direction: column;
+}

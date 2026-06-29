@@ -46,8 +46,8 @@
 .main-conteudos__grid-links {
   text-decoration: none;
   place-content: center;
-  background: #986bfa;
-  color: #efedfc;
+  background: var(--cor-elementos);
+  color: var(--cor-texto);
   border-radius: 30px;
   width: 40vw;
   height: 200px;

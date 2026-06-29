@@ -1,6 +1,7 @@
 import { lista_cursos } from "../variaveis/cursos.js";
 import * as telas from "../variaveis/telas.js";
 import {
+  divConteudo,
   divMensagem,
   gridConteudos,
   linhaFiltrosBotoes,
@@ -34,6 +35,7 @@ export function carregarCursos(
   { professor = false, mensagem = "Não tem cursos para exibir :(" } = {},
 ) {
   //carrega todos os cursos chamando a funcao de carregar curso
+  divConteudo.style.display = "none";
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
   gridConteudos.style.display = "grid"; //exibe a grid de conteudos
   if (lista.length === 0) {

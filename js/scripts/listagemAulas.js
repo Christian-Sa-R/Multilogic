@@ -1,6 +1,8 @@
 import * as telas from "../variaveis/telas.js";
 import { lista_cursos } from "../variaveis/cursos.js";
 import {
+  divAula,
+  divConteudo,
   divMensagem,
   gridConteudos,
   linhaFiltrosBotoes,
@@ -42,15 +44,19 @@ function carregarAula(aula, professor) {
 }
 
 export function carregarAulas(cursoId, professor) {
+  divAula.style.display = "none";
+  divConteudo.innerHTML = "";
+  divConteudo.style.display = "none";
   cursoAtual = cursoId; //atualiza a variavel global do curso atual
   linhaFiltrosBotoes.style.display = "flex";
   if (professor) {
     carregarBotoesProfessor();
   } else {
-    carregarBotoesAluno(cursoAtual);
+    carregarBotoesAluno(cursoId);
   }
   criarListaAulas(lista_cursos.find((curso) => curso.idCurso === cursoId)); //puxa as aulas do curso selecionado
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
+  gridConteudos.style.display = "grid";
   if (lista_aulas.length === 0) {
     gridConteudos.style.display = "none"; //oculta a grid de conteudos
     criarMensagem("Este curso não tem aulas cadastras... >:(");

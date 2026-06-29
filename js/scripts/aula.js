@@ -1,6 +1,6 @@
 import * as telas from "../variaveis/telas.js";
 import { lista_cursos } from "../variaveis/cursos.js";
-import { gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
+import { divAula, divConteudo, gridConteudos, linhaFiltrosBotoes } from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { carregarAulas } from "./listagemAulas.js";
@@ -13,6 +13,7 @@ let botaoVoltar;
 export function carregarConteudoAula(lista_aulas, aulaId, cursoId, professor) {
   cursoAtual = cursoId;
   gridConteudos.innerHTML = ""; //limpa a lista que estiver sendo exibida
+  gridConteudos.style.display = "none";
   if (professor) {
     carregarBotoesProfessor(cursoId);
   } else {
@@ -21,20 +22,22 @@ export function carregarConteudoAula(lista_aulas, aulaId, cursoId, professor) {
 
   const aula = lista_aulas.find((aula) => aula.idAula === aulaId);
   if (aula) {
+    divConteudo.style.display = "flex"
     const titulo = document.createElement("h1");
     titulo.innerHTML = aula.tituloAula;
-    gridConteudos.appendChild(titulo);
-    if (aula.conteudo === "") {
-      gridConteudos.appendChild(
-        criarMensagem("Esta aula ainda não tem conteúdo cadastrado... >:("),
-      );
-      return;
+    divConteudo.append(titulo);
+    if (aula.conteudo?.length > 0) {
+      divAula.innerHTML = "";
+      divAula.style.display = "flex";
+      for (const e in aula.conteudo) {
+        divAula.innerHTML += aula.conteudo[e];
+      }
     } else {
-      const conteudo = document.createElement("div");
-      conteudo.innerHTML = aula.conteudo;
-      gridConteudos.appendChild(conteudo);
+      criarMensagem("Esta aula ainda não tem conteúdo cadastrado... >:(");
+      return;
     }
   } else {
     console.error("Aula não encontrada: " + aulaId);
+    criarMensagem("Aula nao encontrada ;o;");
   }
 }

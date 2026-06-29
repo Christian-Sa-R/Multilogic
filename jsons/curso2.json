@@ -7,13 +7,15 @@
       "idAula": "aula-1",
       "descricaoAula": "Lorem ipsum dolor sit amet",
       "tituloAula": "Aula 1...",
-      "conteudo": "<p>teste</p>"
+      "conteudo": [
+        "<p>teste</p>"
+      ]
     },
     "aula 2": {
       "idAula": "aula-2",
       "descricaoAula": "",
       "tituloAula": "Aula 2...",
-      "conteudo": ""
+      "conteudo": []
     }
   }
 }
