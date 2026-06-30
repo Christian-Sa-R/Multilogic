@@ -129,6 +129,7 @@
 .main-linha-inferior {
   display: none;
   align-self: flex-end;
+  gap: 10px;
   flex-direction: row;
   margin-inline-end: 7vw;
 }

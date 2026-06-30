@@ -14,7 +14,7 @@ export function carregarBotoes(cursoAtual) {
   linhaBotoesInferior.style.display = "none";
 
   //cria o botao de voltar
-  linhaFiltrosBotoes.appendChild(
+  linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
   );
   botaoVoltar = document.querySelector("#main-botao-voltar");

@@ -44,6 +44,7 @@ function carregarAula(aula, professor) {
 }
 
 export function carregarAulas(cursoId, professor) {
+  divMensagem.style.display = "none";
   divAula.style.display = "none";
   divConteudo.innerHTML = "";
   divConteudo.style.display = "none";
