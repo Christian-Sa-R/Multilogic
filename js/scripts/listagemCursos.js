@@ -52,7 +52,7 @@ export function carregarCursos(
   }
 }
 function criarClickCurso(id, professor) {
-  const cursoClick = document.querySelector(`#${id}`);
+  const cursoClick = document.getElementById(id);
   cursoClick.addEventListener("click", () => {
     carregarAulas(id, professor);
   });
