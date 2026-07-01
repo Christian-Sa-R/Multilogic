@@ -70,7 +70,7 @@ export function carregarAulas(cursoId, professor) {
 }
 
 function criarClickAula(id, professor) {
-  const aulaClick = document.querySelector(`#${id}`);
+  const aulaClick = document.getElementById(id);
   aulaClick.addEventListener("click", () => {
     carregarConteudoAula(lista_aulas, id, cursoAtual, professor);
   });
