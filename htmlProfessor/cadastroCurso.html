@@ -16,7 +16,7 @@
     <title>Multilogic</title>
   </head>
 
-  <body id="form-cadastro-aula">
+  <body id="form-cadastro-curso">
     <header>
       <div class="header-info">
         <a href="../index.html">
@@ -49,39 +49,43 @@
     <main class="main-conteudos">
       <div class="main-linha-filtros"></div>
       <div class="main-conteudos__geral">
-        <form class="form-cadastro" id="formulario-aula">
+        <form class="form-cadastro" id="formulario-curso">
           <label>
-            <span>Título da aula*</span>
+            <span>Nome do curso*</span>
             <input
               type="text"
               class="form-input"
-              placeholder="Digite o título da aula..."
-              name="tituloAula"
+              placeholder="Digite o nome do curso..."
+              name="nomeCurso"
               required
             />
           </label>
           <label>
-            <span>ID da aula*</span>
+            <span>ID do curso*</span>
             <input
               type="text"
               class="form-input"
-              placeholder="Digite o id da aula..."
-              name="idAula"
+              placeholder="Digite o id do curso..."
+              name="idCurso"
               required
               maxlength="10"
               pattern="^\S+$"
             />
           </label>
           <label>
-            <span>Descrição da aula:</span>
+            <span>Descrição</span>
             <textarea
               class="form-input input-texto-longo"
               placeholder="Descrição..."
               rows="3"
               maxlength="176"
-              name="descricaoAula"
+              name="descricaoCurso"
             ></textarea>
           </label>
+          <div class="linha-botoes">
+            <button id="botao-salvar-form" class="botao"></button>
+            <div>Salvar</div>
+          </div>
         </form>
       </div>
       <div id="div-mensagem" class="main-conteudos__empty"></div>

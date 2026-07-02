@@ -9,7 +9,6 @@ import {
 } from "../variaveis/containers.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
-import { carregarCadastrarCurso } from "../estruturas/formCadastroCurso.js";
 
 let botaoCadastroCurso;
 
@@ -26,7 +25,7 @@ function carregarBotoes() {
   botaoCadastroCurso = document.querySelector("#botao-adicionar-curso");
   if (botaoCadastroCurso) {
     botaoCadastroCurso.addEventListener("click", () => {
-      carregarCadastrarCurso();
+      window.location.href = "./cadastroCurso.html";
     });
   }
 }

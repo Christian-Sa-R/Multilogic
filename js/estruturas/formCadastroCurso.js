@@ -13,13 +13,12 @@ import { adicionarListennerFormCurso } from "../scripts/persistenciaJsonsCursos.
 let botaoVoltar,
   botaoLimpar,
   salvar = false;
+const camposForm = document.querySelectorAll(".form-input");
 
 function carregarBotoes() {
   //limpa as linhas e exibe
   linhaFiltrosBotoes.innerHTML = "";
   linhaFiltrosBotoes.style.display = "flex";
-  linhaBotoesInferior.innerHTML = "";
-  linhaBotoesInferior.style.display = "flex";
 
   //cria os botoes da linha superior
   linhaFiltrosBotoes.append(
@@ -30,6 +29,7 @@ function carregarBotoes() {
   botaoVoltar = document.querySelector("#botao-voltar");
   if (botaoVoltar) {
     botaoVoltar.addEventListener("click", () => {
+      window.location.href = "./meusCursos.html";
       divConteudo.innerHTML = "";
       divConteudo.style.display = "none";
       carregarElementosCursos();
@@ -39,74 +39,16 @@ function carregarBotoes() {
   botaoLimpar = document.querySelector("#botao-limpar");
   if (botaoLimpar) {
     botaoLimpar.addEventListener("click", () => {
-      carregarDivConteudo();
+      camposForm.forEach((element) => {
+        element.innerHTML = "";
+      });
     });
   }
 }
 
-function carregarDivConteudo() {
-  divMensagem.style.display = "none";
-  divConteudo.style.display = "flex";
-  divConteudo.innerHTML = "";
-  gridConteudos.style.display = "none";
-
-  //cria o form
-  let formulario = document.createElement("form");
-  formulario.classList.add("form-cadastro-curso");
-  formulario.id = "formulario-curso";
-
-  //cria a label de nome
-  let labelNome = document.createElement("label");
-  let labelNomeTexto = document.createElement("span");
-  labelNomeTexto.innerHTML = "Nome do curso*";
-  //cria o input do nome
-  let inputNome = document.createElement("input");
-  inputNome.type = "text";
-  inputNome.className = "form-input";
-  inputNome.placeholder = "Digite o nome do curso...";
-  inputNome.name = "nomeCurso";
-  inputNome.required = true;
-
-  labelNome.append(labelNomeTexto, inputNome);
-
-  //cria a label do id 
-  let labelId = document.createElement("label");
-  let labelIdTexto = document.createElement("span");
-  labelIdTexto.innerHTML = "Id do curso*";
-  //cria o input do id 
-  let inputId = document.createElement("input");
-  inputId.type = "text";
-  inputId.className = "form-input";
-  inputId.placeholder = "Digite o id do curso...";
-  inputId.name = "idCurso";
-  inputId.required = true;
-  inputId.maxLength = "10";
-  inputId.pattern = "^\\S+$";
-
-  labelId.append(labelIdTexto, inputId);
-
-  let labelDescricao = document.createElement("label");
-  let labelDescricaoTexto = document.createElement("span");
-  labelDescricaoTexto.innerHTML = "Descrição";
-  //cria o input da descrição
-  let inputDescricao = document.createElement("textarea");
-  inputDescricao.className = "form-input input-texto-longo";
-  inputDescricao.placeholder = "Descrição...";
-  inputDescricao.rows = "3";
-  inputDescricao.maxLength = "176";
-  inputDescricao.name = "descricaoCurso";
-
-  labelDescricao.append(labelDescricaoTexto, inputDescricao);
-
-  let botaoSalvar = criarBotaoFiltroBotoes("botao-salvar-form", "Salvar")
-  botaoSalvar.type = "submit";
-
-  divConteudo.append(formulario);
-  formulario.append(labelNome, labelId, labelDescricao, botaoSalvar);
-  adicionarListennerFormCurso();
-}
-
-export function carregarCadastrarCurso() {
-  carregarBotoes();
-  carregarDivConteudo();
-}
+window.addEventListener("load", () => {
+  if (document.getElementById("form-cadastro-curso")) {
+    carregarBotoes();
+    adicionarListennerFormCurso();
+  }
+});

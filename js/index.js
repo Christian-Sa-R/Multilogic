@@ -5,4 +5,5 @@ import "./scripts/listagemAulas.js";
 import "./scripts/matriculas.js";
 import "./scripts/meusCursosAluno.js";
 import "./scripts/meusCursosProfessor.js";
-import "./scripts/persistenciaJsonsCursos.js"
+import "./scripts/persistenciaJsonsCursos.js";
+import "./estruturas/formCadastroCurso.js";
