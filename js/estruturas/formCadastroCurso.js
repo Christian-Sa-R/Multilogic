@@ -3,8 +3,6 @@ import { criarMensagem } from "./criarMensagem.js";
 import {
   divConteudo,
   divMensagem,
-  gridConteudos,
-  linhaBotoesInferior,
   linhaFiltrosBotoes,
 } from "../variaveis/containers.js";
 import { carregarElementosCursos } from "../scripts/meusCursosProfessor.js";
@@ -30,8 +28,6 @@ function carregarBotoes() {
   if (botaoVoltar) {
     botaoVoltar.addEventListener("click", () => {
       window.location.href = "./meusCursos.html";
-      divConteudo.innerHTML = "";
-      divConteudo.style.display = "none";
       carregarElementosCursos();
     });
   }
@@ -40,7 +36,7 @@ function carregarBotoes() {
   if (botaoLimpar) {
     botaoLimpar.addEventListener("click", () => {
       camposForm.forEach((element) => {
-        element.innerHTML = "";
+        element.value = "";
       });
     });
   }

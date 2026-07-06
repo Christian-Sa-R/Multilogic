@@ -7,3 +7,4 @@ import "./scripts/meusCursosAluno.js";
 import "./scripts/meusCursosProfessor.js";
 import "./scripts/persistenciaJsonsCursos.js";
 import "./estruturas/formCadastroCurso.js";
+import "./estruturas/formCadastroAula.js";

@@ -29,6 +29,11 @@ export function carregarBotoesAulas() {
     criarBotaoFiltroBotoes("botao-cadastro-aula", "Cadastrar aula", "+"),
   );
   botaoCadastroAula = document.querySelector("#botao-cadastro-aula");
+  if (botaoCadastroAula) {
+    botaoCadastroAula.addEventListener("click", () => {
+      window.location.href = "./cadastroAula.html";
+    });
+  }
 }
 
 function voltarBotao() {

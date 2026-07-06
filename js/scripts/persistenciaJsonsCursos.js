@@ -22,6 +22,7 @@ function criarJsonCurso(dados) {
   lista_cursos.push(json);
   localStorage.setItem("cursosMultilogic", JSON.stringify(lista_cursos));
   divConteudo.style.display = "none";
+  window.location.href = "./meusCursos.html";
   carregarElementosCursos();
 }
 

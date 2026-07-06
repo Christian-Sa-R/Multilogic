@@ -49,5 +49,6 @@
 }
 
 .input-texto-longo {
-  resize: vertical;
+  height: 100px;
+  resize: none;
 }
