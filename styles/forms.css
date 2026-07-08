@@ -10,6 +10,7 @@
   align-items: flex-end;
   width: 40vw;
   gap: 20px;
+  margin: 20px 0;
 }
 
 .form-cadastro label {

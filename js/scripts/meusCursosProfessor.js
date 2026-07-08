@@ -9,6 +9,7 @@ import {
 } from "../variaveis/containers.js";
 import { criarMensagem } from "../estruturas/criarMensagem.js";
 import { criarBotaoFiltroBotoes } from "../estruturas/criarBotoes.js";
+import { carregarAulas } from "./listagemAulas.js";
 
 let botaoCadastroCurso;
 
@@ -42,9 +43,14 @@ export function carregarElementosCursos() {
   chamarCarregarCursos();
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   //Carrega os cursos
   if (telas.telaMeusCursos) {
-    carregarElementosCursos();
+    if (sessionStorage.getItem("cursoAtual")) {
+      carregarAulas(sessionStorage.getItem("cursoAtual"), true);
+      sessionStorage.removeItem("cursoAtual");
+    } else {
+      carregarElementosCursos();
+    }
   }
 });

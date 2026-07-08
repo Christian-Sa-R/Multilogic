@@ -7,6 +7,8 @@ import { carregarElementosCursos } from "../scripts/meusCursosProfessor.js";
 
 let botaoVoltar, botaoCadastroAula;
 
+let curso;
+
 export function carregarBotoesAulas() {
   linhaFiltrosBotoes.innerHTML = "";
   linhaFiltrosBotoes.style.display = "flex";
@@ -31,11 +33,21 @@ export function carregarBotoesAulas() {
   botaoCadastroAula = document.querySelector("#botao-cadastro-aula");
   if (botaoCadastroAula) {
     botaoCadastroAula.addEventListener("click", () => {
+      salvarCursoAtual();
       window.location.href = "./cadastroAula.html";
     });
   }
 }
 
+export function receberIdCurso(cursoId) {
+  curso = cursoId;
+}
+
+function salvarCursoAtual() {
+  sessionStorage.setItem("cursoAtual", curso);
+}
+
 function voltarBotao() {
+  sessionStorage.removeItem("cursoAtual");
   carregarElementosCursos();
 }

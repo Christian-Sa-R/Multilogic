@@ -14,7 +14,10 @@ import { carregarConteudoAula } from "./aula.js";
 import { lista_cursos_matriculados } from "../variaveis/listas.js";
 import { matricular, matriculado } from "./matriculas.js";
 import { carregarBotoesAulas as carregarBotoesAluno } from "../estruturas/listagemAulasAluno.js";
-import { carregarBotoesAulas as carregarBotoesProfessor } from "../estruturas/listagemAulasProfessor.js";
+import {
+  carregarBotoesAulas as carregarBotoesProfessor,
+  receberIdCurso as enviarId,
+} from "../estruturas/listagemAulasProfessor.js";
 
 let cursoAtual;
 let lista_aulas = []; //puxa do json no momento que a função carregarAulas for chamada
@@ -44,6 +47,7 @@ function carregarAula(aula, professor) {
 }
 
 export function carregarAulas(cursoId, professor) {
+  enviarId(cursoId);
   divMensagem.style.display = "none";
   divAula.style.display = "none";
   divConteudo.innerHTML = "";

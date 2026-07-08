@@ -59,7 +59,7 @@ export function carregarElementosCursos() {
   chamarCarregarCursos();
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   if (telaAreaEstudo) {
     carregarElementosCursos();
   }

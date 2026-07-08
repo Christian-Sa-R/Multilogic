@@ -10,7 +10,7 @@
       "conteudo": [
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales eros in rhoncus faucibus. Mauris quam erat, semper ac fringilla eu, hendrerit eu lacus. Mauris vel accumsan augue. Aliquam malesuada sit amet nisi ac posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed vitae purus vel orci dictum sollicitudin. Ut ac dapibus lacus, sit amet eleifend lorem. Sed ut accumsan odio. Proin rutrum egestas eros non gravida. Phasellus consequat, dui at tempor egestas, justo nisl sagittis felis, id tempus sem arcu commodo diam. Aenean arcu metus, lobortis vitae magna in, consequat tincidunt neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin nunc tortor, sagittis ut tortor ut, lobortis aliquet velit.</p>",
         "<p>Videoaula: </p>",
-        "<video controls src=\"./videos/video_teste.mp4\" type=\"video.mp4\"></video>",
+        "<video controls src=\"../videos/video_teste.mp4\" type=\"video.mp4\"></video>",
         "<p>Acabou a aula</p>"
       ]
     },
@@ -18,33 +18,25 @@
       "idAula": "aula-2",
       "descricaoAula": "consectetur adipiscing elit.",
       "tituloAula": "Aula 2",
-      "conteudo": [
-        "<p>teste dois</p>"
-      ]
+      "conteudo": ["<p>teste dois</p>"]
     },
     "aula 3": {
       "idAula": "aula-3",
       "descricaoAula": "Maecenas ultricies feugiat eros, et porttitor erat volutpat vel.",
       "tituloAula": "Aula 3",
-      "conteudo": [
-        "<p>teste três</p>"
-      ]
+      "conteudo": ["<p>teste três</p>"]
     },
     "aula 4": {
       "idAula": "aula-4",
       "descricaoAula": "Morbi id ipsum quis neque pulvinar tempus.",
       "tituloAula": "Aula 4",
-      "conteudo": [
-        "<p>teste quatro</p>"
-      ]
+      "conteudo": ["<p>teste quatro</p>"]
     },
     "aula 5": {
       "idAula": "aula-5",
       "descricaoAula": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies feugiat eros, et porttitor erat volutpat vel. Morbi id ipsum quis neque pulvinar tempus.",
       "tituloAula": "Aula 5",
-      "conteudo": [
-        "<p>teste cinco</p>"
-      ]
+      "conteudo": ["<p>teste cinco</p>"]
     },
     "aula 6": {
       "idAula": "aula-6",
