@@ -44,7 +44,7 @@ function filtrarMatriculados() {
   chamarCarregarCursos();
 }
 
-function chamarCarregarCursos() {
+export function chamarCarregarCursos() {
   if (estadoFiltroMatriculados) {
     carregarCursos(lista_cursos_matriculados, {
       mensagem: "Você ainda não está matriculado em nenhum curso... :(",
