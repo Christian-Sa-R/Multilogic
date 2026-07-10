@@ -7,6 +7,7 @@
 .form-cadastro {
   display: flex;
   flex-direction: column;
+  justify-self: center;
   align-items: flex-end;
   width: 40vw;
   gap: 20px;
@@ -27,6 +28,7 @@
   font-size: 1.2rem;
   color: var(--cor-texto);
   font-weight: bold;
+  color: var(--cor-elementos);
 }
 
 .form-input::placeholder {
@@ -52,4 +54,32 @@
 .input-texto-longo {
   height: 100px;
   resize: none;
+}
+
+.form-aula-conteudo {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 0;
+}
+
+#botoes-form {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 0 10px;
+}
+
+.input-texto-aula {
+  height: 37px;
+  width: 80vw;
+  box-sizing: border-box;
+  overflow: hidden;
+  resize: none;
+}
+
+.video-form {
+  width: 50vw;
 }

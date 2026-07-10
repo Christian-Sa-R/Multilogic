@@ -49,39 +49,61 @@
     <main class="main-conteudos">
       <div class="main-linha-filtros"></div>
       <div class="main-conteudos__geral">
-        <form class="form-cadastro" id="formulario-aula">
-          <label>
-            <span>Título da aula*</span>
-            <input
-              type="text"
-              class="form-input"
-              placeholder="Digite o título da aula..."
-              name="tituloAula"
-              required
-            />
-          </label>
-          <label>
-            <span>ID da aula*</span>
-            <input
-              type="text"
-              class="form-input"
-              placeholder="Digite o id da aula..."
-              name="idAula"
-              required
-              maxlength="10"
-              pattern="^\S+$"
-            />
-          </label>
-          <label>
-            <span>Descrição da aula</span>
-            <textarea
-              class="form-input input-texto-longo"
-              placeholder="Descrição..."
-              rows="3"
-              maxlength="176"
-              name="descricaoAula"
-            ></textarea>
-          </label>
+        <form id="formulario-aula">
+          <div class="form-cadastro">
+            <label>
+              <span>Título da aula*</span>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Digite o título da aula..."
+                name="tituloAula"
+                required
+              />
+            </label>
+            <label>
+              <span>ID da aula*</span>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Digite o id da aula..."
+                name="idAula"
+                required
+                maxlength="10"
+                pattern="^\S+$"
+              />
+            </label>
+            <label>
+              <span>Descrição da aula</span>
+              <textarea
+                class="form-input input-texto-longo"
+                placeholder="Descrição..."
+                rows="3"
+                maxlength="176"
+                name="descricaoAula"
+              ></textarea>
+            </label>
+          </div>
+          <div class="form-aula-conteudo">
+            <div id="botoes-form">
+              <div class="linha-botoes">
+                <button
+                  id="botao-novo-texto"
+                  class="botao"
+                  type="button"
+                ></button>
+                <div>Adicionar texto</div>
+              </div>
+              <div class="linha-botoes">
+                <button
+                  id="botao-novo-video"
+                  class="botao"
+                  type="button"
+                ></button>
+                <div>Adicionar vídeo</div>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
       <div id="div-mensagem" class="main-conteudos__empty"></div>
