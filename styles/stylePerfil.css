@@ -1,0 +1,56 @@
+@import url("cores.css");
+
+/* Parte da grid de cursos */
+
+.main-conteudos__geral {
+  width: 90vw;
+  margin: 50px 5vw;
+  padding: 50px 0;
+}
+
+#div-conteudos-perfil {
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--cor-botoes);
+  width: 65vw;
+  margin-inline-end: 5vw;
+}
+
+.main-conteudos__grid {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 2vw;
+  margin: 0;
+}
+
+.main-conteudos__grid-links {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Parte do perfil do usuário */
+
+#div-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: var(--cor-elementos);
+  width: 35vw;
+  border-radius: 30px 30px 0 0;
+  padding: 20px;
+}
+
+.main-conteudos__perfil__foto {
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.div-foto {
+  height: 200px;
+  width: 200px;
+}

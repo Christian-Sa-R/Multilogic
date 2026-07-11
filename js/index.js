@@ -8,3 +8,5 @@ import "./scripts/meusCursosProfessor.js";
 import "./scripts/persistenciaJsonsCursos.js";
 import "./estruturas/formCadastroCurso.js";
 import "./estruturas/formCadastroAula.js";
+import "./scripts/areaAluno.js";
+import "./scripts/areaProfessor.js";

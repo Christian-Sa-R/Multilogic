@@ -78,8 +78,14 @@
   box-sizing: border-box;
   overflow: hidden;
   resize: none;
+  text-align: center;
+  padding: 15px;
 }
 
 .video-form {
   width: 50vw;
+}
+
+.botao-excluir-conteudo {
+  margin-left: auto;
 }

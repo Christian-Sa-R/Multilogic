@@ -79,6 +79,7 @@ function botoesAdicionaisIniciais(edicao) {
 function adicionarBotaoExcluir(elemento) {
   const excluir = criarBotaoFiltroBotoes("", "Apagar");
   excluir.type = "button";
+  excluir.classList.add("botao-excluir-conteudo");
   excluir.addEventListener("click", () => {
     elemento.remove();
     excluir.remove();
@@ -87,23 +88,25 @@ function adicionarBotaoExcluir(elemento) {
 }
 
 function adicionarTexto() {
+  const divInput = document.createElement("div");
   const input = document.createElement("textarea");
   input.className = "form-input input-texto-aula";
   input.addEventListener("input", () => {
     input.style.height = "auto";
     input.style.height = input.scrollHeight + "px";
   });
-  input.after(adicionarBotaoExcluir(input));
-  return input;
+  divInput.append(input, adicionarBotaoExcluir(divInput));
+  return divInput;
 }
 
 function adicionarVideo() {
+  const divVideo = document.createElement("div");
   const video = document.createElement("video");
   video.classList = "video-form";
   video.controls = true;
   video.src = "../videos/video_teste.mp4";
-  video.after(adicionarBotaoExcluir(video));
-  return video;
+  divVideo.append(video, adicionarBotaoExcluir(divVideo));
+  return divVideo;
 }
 
 function carregarElementosExistentes() {
