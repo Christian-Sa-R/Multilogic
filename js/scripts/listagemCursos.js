@@ -54,6 +54,14 @@ export function carregarCursos(
 function criarClickCurso(id, professor) {
   const cursoClick = document.getElementById(id);
   cursoClick.addEventListener("click", () => {
-    carregarAulas(id, professor);
+    if (telas.telaAreaEstudo || telas.telaMeusCursos) {
+      carregarAulas(id, professor);
+    } else if (telas.telaAreaAluno) {
+      sessionStorage.setItem("cursoAtual", id);
+      window.location.href = "./areaEstudo.html";
+    } else if (telas.telaAreaProfessor) {
+      sessionStorage.setItem("cursoAtual", id);
+      window.location.href = "./meusCursos.html";
+    }
   });
 }

@@ -1,64 +1,98 @@
 <!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/styleBotoes.css" />
+    <link rel="stylesheet" href="../styles/styleCursos.css" />
+    <link rel="stylesheet" href="../styles/stylePerfil.css" />
+    <script
+      src="https://kit.fontawesome.com/abfe3164f4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Multilogic</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="stylesheet" href="../styles/styleBotoes.css" />
-  <link rel="stylesheet" href="../styles/styleCursos.css" />
-  <link rel="stylesheet" href="../styles/stylePerfil.css" />
-  <script src="https://kit.fontawesome.com/abfe3164f4.js" crossorigin="anonymous"></script>
-  <title>Multilogic</title>
-</head>
-
-<body id="area-aluno">
-  <header>
-    <div class="header-info">
-      <a href="../index.html">
-        <img class="header-info-logo" src="../img/Brasao.png" alt="Logo Multilogic" />
-      </a>
-      MULTILOGIC
-    </div>
-    <div class="header-botoes">
-      <a class="header-botoes-gerais" href="areaEstudo.html">ÁREA DE ESTUDO</a>
-      <a class="header-botoes-gerais header-botoes-gerais-atual" href="areaAluno.html">
-        ÁREA DO ALUNO
-      </a>
-      <a class="header-botoes-gerais header-botao-sair" href="../index.html">
-        Sair
-      </a>
-      <button id="header-botao-tema">
-        <i class="fa-solid fa-sun"></i>
-      </button>
-    </div>
-  </header>
-  <main class="main-aluno">
-    <div class="main-conteudos__geral">
-      <div id="div-conteudos-perfil">
-        <div id="div-mensagem" class="main-conteudos__empty"></div>
-        <ul id="grid-conteudos" class="main-conteudos__grid"></ul>
+  <body id="area-aluno">
+    <header>
+      <div class="header-info">
+        <a href="../index.html">
+          <img
+            class="header-info-logo"
+            src="../img/Brasao.png"
+            alt="Logo Multilogic"
+          />
+        </a>
+        MULTILOGIC
       </div>
-      <div id="div-perfil" class="main-conteudos__perfil">
-        <div class="main-conteudos__perfil__item div-foto">
-          <img src="../img/professor.png" alt="Foto de perfil do usuário" class="main-conteudos__perfil__foto" />
+      <div class="header-botoes">
+        <a class="header-botoes-gerais" href="areaEstudo.html"
+          >ÁREA DE ESTUDO</a
+        >
+        <a
+          class="header-botoes-gerais header-botoes-gerais-atual"
+          href="areaAluno.html"
+        >
+          ÁREA DO ALUNO
+        </a>
+        <a class="header-botoes-gerais header-botao-sair" href="../index.html">
+          Sair
+        </a>
+        <button id="header-botao-tema">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </header>
+    <main class="main-aluno">
+      <div class="main-conteudos__geral">
+        <div id="div-conteudos-perfil">
+          <div class="linha-botoes">
+            <button id="main-botao-todos" class="botao"></button>
+            <div>Exibir todos os cursos</div>
+          </div>
+          <div id="div-mensagem" class="main-conteudos__empty"></div>
+          <ul id="grid-conteudos" class="main-conteudos__grid"></ul>
+        </div>
+        <div id="div-perfil" class="main-conteudos__perfil">
+          <div class="main-conteudos__perfil__item div-foto">
+            <img
+              src="../img/Aluno.png"
+              alt="Foto de perfil do usuário"
+              class="main-conteudos__perfil__foto"
+            />
+          </div>
+          <div class="main-conteudos__perfil__item div-nome">
+            <div>Baphomet da Silva</div>
+            <div>(Aluno)</div>
+          </div>
+          <div class="main-conteudos__perfil__item div-bio">
+            <div class="texto-bio">Sobre mim</div>
+            <div>
+              Aluno dedicado e esforçado bla bla bla bla
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
+          </div>
+          <div class="main-conteudos_perfil_item div-contatos">
+            <div class="texto-contatos">Contatos</div>
+            <div>Celular: 11 9000-0000</div>
+            <div>Email: bapho123@gmail.com</div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <hr class="linha-divisoria" />
-  <footer>
-    <p class="footer-sobre">Endereço</p>
-    <p class="footer-sobre">Contatos</p>
-    <p class="footer-sobre-conteudo">
-      Av. Perimetral, 134 - Terra Firme, Belém - PA, 66077-830
-    </p>
-    <p class="footer-sobre-conteudo">
-      Telefone: (91) 99999-9999 <br />Email: email@exemplo.com
-    </p>
-  </footer>
-  <script src="../js/index.js" type="module"></script>
-</body>
-
+    </main>
+    <hr class="linha-divisoria" />
+    <footer>
+      <p class="footer-sobre">Endereço</p>
+      <p class="footer-sobre">Contatos</p>
+      <p class="footer-sobre-conteudo">
+        Av. Perimetral, 134 - Terra Firme, Belém - PA, 66077-830
+      </p>
+      <p class="footer-sobre-conteudo">
+        Telefone: (91) 99999-9999 <br />Email: email@exemplo.com
+      </p>
+    </footer>
+    <script src="../js/index.js" type="module"></script>
+  </body>
 </html>

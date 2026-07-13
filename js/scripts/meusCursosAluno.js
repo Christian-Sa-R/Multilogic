@@ -9,6 +9,7 @@ import {
   linhaBotoesInferior,
   linhaFiltrosBotoes,
 } from "../variaveis/containers.js";
+import { carregarAulas } from "./listagemAulas.js";
 
 let estadoFiltroMatriculados, botaoFiltroMatriculados;
 
@@ -61,6 +62,11 @@ export function carregarElementosCursos() {
 
 window.addEventListener("DOMContentLoaded", () => {
   if (telaAreaEstudo) {
-    carregarElementosCursos();
+    if (sessionStorage.getItem("cursoAtual")) {
+      carregarAulas(sessionStorage.getItem("cursoAtual"));
+      sessionStorage.removeItem("cursoAtual");
+    } else {
+      carregarElementosCursos();
+    }
   }
 });

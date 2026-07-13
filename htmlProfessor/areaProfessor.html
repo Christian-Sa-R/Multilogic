@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/styleBotoes.css" />
+    <link rel="stylesheet" href="../styles/styleCursos.css" />
+    <link rel="stylesheet" href="../styles/stylePerfil.css" />
     <script
       src="https://kit.fontawesome.com/abfe3164f4.js"
       crossorigin="anonymous"
@@ -41,8 +44,42 @@
       </div>
     </header>
     <!-- Aqui comeca o main ------------------------------------------------------------------- -->
-    <main>
-      <!--Editar aqui nas novas páginas-->
+    <main class="main-professor">
+      <div class="main-conteudos__geral">
+        <div id="div-conteudos-perfil">
+          <div id="div-mensagem" class="main-conteudos__empty"></div>
+          <div class="linha-botoes">
+            <button id="main-botao-todos" class="botao"></button>
+            <div>Exibir todos os cursos</div>
+          </div>
+          <ul id="grid-conteudos" class="main-conteudos__grid"></ul>
+        </div>
+        <div id="div-perfil" class="main-conteudos__perfil">
+          <div class="main-conteudos__perfil__item div-foto">
+            <img
+              src="../img/Professor.png"
+              alt="Foto de perfil do usuário"
+              class="main-conteudos__perfil__foto"
+            />
+          </div>
+          <div class="main-conteudos__perfil__item div-nome">
+            <div>Sr. Nicolau</div>
+            <div>(Professor)</div>
+          </div>
+          <div class="main-conteudos__perfil__item div-bio">
+            <div class="texto-bio">Sobre mim</div>
+            <div>
+              É muito mais seguro ser temido do que amado, quando se tenha de
+              faltar a uma das duas.
+            </div>
+          </div>
+          <div class="main-conteudos_perfil_item div-contatos">
+            <div class="texto-contatos">Contatos</div>
+            <div>Celular: 91 9000-0000</div>
+            <div>Email: maquiavelico@gmail.com</div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- Aqui termina o main ------------------------------------------------------------------- -->
     <hr class="linha-divisoria" />

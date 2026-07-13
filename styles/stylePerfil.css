@@ -5,7 +5,7 @@
 .main-conteudos__geral {
   width: 90vw;
   margin: 50px 5vw;
-  padding: 50px 0;
+  padding: 0;
   align-items: flex-start;
 }
 
@@ -37,6 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 20px;
   background: var(--cor-elementos);
   width: 35vw;
@@ -67,4 +68,23 @@
   box-sizing: border-box;
   width: 100%;
   margin: 0;
+}
+
+.linha-botoes {
+  margin-bottom: 20px;
+}
+
+.div-nome {
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.texto-bio {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.texto-contatos {
+  font-size: 20px;
+  font-weight: bolder;
 }
