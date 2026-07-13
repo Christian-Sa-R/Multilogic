@@ -6,6 +6,7 @@
   width: 90vw;
   margin: 50px 5vw;
   padding: 50px 0;
+  align-items: flex-start;
 }
 
 #div-conteudos-perfil {
@@ -13,6 +14,7 @@
   border-radius: 20px;
   border: 1px solid var(--cor-botoes);
   width: 65vw;
+  height: auto;
   margin-inline-end: 5vw;
 }
 
@@ -38,7 +40,8 @@
   gap: 20px;
   background: var(--cor-elementos);
   width: 35vw;
-  border-radius: 30px 30px 0 0;
+  height: auto;
+  border-radius: 30px;
   padding: 20px;
 }
 
@@ -53,4 +56,15 @@
 .div-foto {
   height: 200px;
   width: 200px;
+}
+
+.main-conteudos__empty {
+  justify-content: center;
+  font-size: 30px;
+  text-align: center;
+  background: var(--cor-elementos);
+  border-radius: 30px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
 }

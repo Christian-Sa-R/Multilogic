@@ -4,8 +4,9 @@ import {
   linhaFiltrosBotoes,
 } from "../variaveis/containers.js";
 import { criarBotaoFiltroBotoes } from "./criarBotoes.js";
+import { adicionarListennerFormAula } from "../scripts/persistenciaJsonsAulas.js";
 
-let botaoVoltar, botaoLimpar, botaoCancelar, botaoExcluir, botaoSalvar;
+let botaoVoltar, botaoLimpar, botaoSalvar;
 let botaoNovoTexto, botaoNovoVideo, botaoExcluirConteudo;
 
 const camposForm = document.querySelectorAll(".form-input");
@@ -32,18 +33,18 @@ function botoesSuperiores() {
   }
 }
 
-function botoesInferiores(edicao) {
+function botoesInferiores() {
   linhaBotoesInferior.style.display = "flex";
   linhaBotoesInferior.innerHTML = "";
-  if (edicao) {
-    linhaBotoesInferior.append(
-      criarBotaoFiltroBotoes("botao-cancelar", "Cancelar edição"),
-      criarBotaoFiltroBotoes("botao-excluir", "Excluir aula"),
-    );
-  }
   linhaBotoesInferior.append(
     criarBotaoFiltroBotoes("botao-salvar", "Salvar aula"),
   );
+  botaoSalvar = document.getElementById("botao-salvar");
+  botaoSalvar.addEventListener("click", () => {
+    //salvar a aula
+    const formularioAula = document.querySelector("#formulario-aula");
+    formularioAula.requestSubmit();
+  });
 }
 
 function carregarBotoes(edicao) {
@@ -90,6 +91,9 @@ function adicionarBotaoExcluir(elemento) {
 function adicionarTexto() {
   const divInput = document.createElement("div");
   const input = document.createElement("textarea");
+  divInput.dataset.tipo = "texto";
+  input.name = "conteudo[]";
+  input.required = true;
   input.className = "form-input input-texto-aula";
   input.addEventListener("input", () => {
     input.style.height = "auto";
@@ -102,27 +106,22 @@ function adicionarTexto() {
 function adicionarVideo() {
   const divVideo = document.createElement("div");
   const video = document.createElement("video");
+  const input = document.createElement("input");
+  input.style.display = "none";
+  input.name = "conteudo[]";
+  divVideo.dataset.tipo = "video";
   video.classList = "video-form";
   video.controls = true;
   video.src = "../videos/video_teste.mp4";
-  divVideo.append(video, adicionarBotaoExcluir(divVideo));
+  divVideo.append(input, video, adicionarBotaoExcluir(divVideo));
   return divVideo;
-}
-
-function carregarElementosExistentes() {
-  console.log("elementos existentes");
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("form-cadastro-aula")) {
-    if (sessionStorage.getItem("edicaoAula")) {
-      carregarBotoes(true);
-      botoesAdicionaisIniciais();
-      carregarElementosExistentes();
-    } else {
-      carregarBotoes();
-      botoesAdicionaisIniciais();
-    }
+    adicionarListennerFormAula();
+    carregarBotoes();
     //adicionarListennerFormCurso();
+    botoesAdicionaisIniciais();
   }
 });

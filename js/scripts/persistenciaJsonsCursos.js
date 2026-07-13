@@ -32,7 +32,6 @@ function checkarInfos(nome, id) {
     criarMensagem("Id do curso já está cadastrado, tente novamente.");
     return true;
   }
-  const idArray = [...nome];
   //verifica se o nome esta vazio
   let nomeInvalido = false;
   if (nome.trim() === "") {

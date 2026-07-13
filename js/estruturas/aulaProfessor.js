@@ -5,8 +5,9 @@ import {
 import { criarBotaoFiltroBotoes } from "./criarBotoes.js";
 import { carregarAulas } from "../scripts/listagemAulas.js";
 import { carregarConteudoAula } from "../scripts/aula.js";
+import { excluirAula } from "../scripts/persistenciaJsonsAulas.js";
 
-let botaoVoltar, botaoEditar, botaoAnterior, botaoProximo;
+let botaoVoltar, botaoExcluir, botaoAnterior, botaoProximo;
 
 export function carregarBotoesSuperior(lista_aulas, cursoAtual, aulaAtual) {
   linhaFiltrosBotoes.innerHTML = ""; //limpa a linha de filtros e botoes
@@ -17,7 +18,6 @@ export function carregarBotoesSuperior(lista_aulas, cursoAtual, aulaAtual) {
   //cria o botao de voltar e o botão de editar
   linhaFiltrosBotoes.append(
     criarBotaoFiltroBotoes("main-botao-voltar", "Voltar", "<"),
-    criarBotaoFiltroBotoes("main-botao-editar", "Editar"),
   );
   botaoVoltar = document.querySelector("#main-botao-voltar");
   if (botaoVoltar) {
@@ -40,8 +40,9 @@ export function carregarBotoesInferior(lista_aulas, cursoAtual, aulaAtual) {
     }
   }
 
-  //cria o botão de proximo.
+  //cria o botão de excluir e proximo.
   linhaBotoesInferior.append(
+    criarBotaoFiltroBotoes("main-botao-excluir", "Excluir aula", "X"),
     criarBotaoFiltroBotoes("main-botao-proxima", "Próxima aula", ">"),
   );
   //click botao avancar
@@ -49,11 +50,26 @@ export function carregarBotoesInferior(lista_aulas, cursoAtual, aulaAtual) {
   botaoProximo.addEventListener("click", () => {
     botaoAvancarClick(lista_aulas, aulaAtual, cursoAtual);
   });
+  //click botao excluir
+  botaoExcluir = document.querySelector("#main-botao-excluir");
+  botaoExcluir.addEventListener("click", () => {
+    const confirmacao = confirm("Tem certeza que deseja excluir esta aula? Esta ação não pode ser desfeita.",
+    );
+    if (confirmacao) {
+      botaoExcluirClick(cursoAtual, aulaAtual, lista_aulas);
+    }
+  });
 }
 
 function botaoAnteriorClick(lista_aulas, aulaAtual, cursoId) {
   let aulaId = lista_aulas[aulaAtual - 1].idAula;
   carregarConteudoAula(lista_aulas, aulaId, cursoId, true);
+}
+
+function botaoExcluirClick(cursoId, aulaAtual, lista_aulas) {
+  sessionStorage.setItem("cursoAtual", cursoId);
+  excluirAula(cursoId, lista_aulas[aulaAtual].idAula);
+  window.location.href = "./meusCursos.html";
 }
 
 function botaoAvancarClick(lista_aulas, aulaAtual, cursoId) {
