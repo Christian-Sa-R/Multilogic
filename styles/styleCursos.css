@@ -4,76 +4,96 @@
 .main-linha-filtros {
   align-self: flex-start;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-direction: row;
-  margin-inline-start: 7vw;
+  margin-inline-start: 10vw;
+  margin-top: 20px;
 }
 
 .main-botoes {
   margin-right: 10px;
 }
 
-/* Fim da parte da linha de filtros */
+.main-conteudos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
 
 .main-conteudos__empty {
   display: none;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 18px;
   text-align: center;
-  background: var(--cor-elementos);
-  border-radius: 30px;
+  background: var(--cor-fundo--alternativo);
+  border-radius: 20px;
   width: 80vw;
-  height: auto;
-  padding: 40px;
-  margin: 20px 8vw;
-}
-
-.main-conteudos {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  padding: 25px;
+  margin: 20px auto;
+  font-weight: bold;
 }
 
 .main-conteudos__grid {
   display: grid;
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px 2vw;
-  margin: 30px 0;
+  gap: 25px;
+  max-width: 80vw;
+  margin: 25px 0;
+  padding: 0;
+  list-style: none;
 }
 
 .main-conteudos__grid-links {
   text-decoration: none;
-  place-content: center;
-  background: var(--cor-elementos);
+  background-color: var(--cor-fundo--alternativo);
   color: var(--cor-texto);
-  border-radius: 30px;
-  width: 40vw;
-  height: 200px;
-  padding: 0 10px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  min-height: 180px;
+  height: auto;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.main-conteudos__grid-links:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .conteudo_titulo {
-  padding: 20px;
-  font-size: 35px;
-  height: 35%;
+  font-size: 20px;
+  height: 20%;
   font-weight: bold;
 }
 
 .conteudo_descricao {
-  font-size: 20px;
-  height: 35%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .linha_container_conteudo {
   color: white;
   margin: 0 20px;
-}
-
-.main-conteudos__geral {
-  display: none;
+  width: 100%;
 }
 
 /* Fim da parte do main, inicio da linha de botoes inferior */
